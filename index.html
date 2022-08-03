@@ -29,6 +29,8 @@
                 font-family: arial black;
             }
 
+
+
             .links-list {
                 padding-left: 5 px;
             }
@@ -76,18 +78,26 @@
                 overflow-y: auto;
             }
 
-            .stickytop {
-                position: -webkit-sticky;
-                position: sticky;
-                background-color: yellow;
 
-                margin-left: 200px;
-                padding: 10px;
-                overflow-x: hidden;
-                overflow-y: auto;
-                top: 825px;
 
+.stickytop {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: yellow;
+   text-align: center;
+padding-top: 1%;
+padding-bottom: 1%
+    }
+
+
+            .stickytoptext {
+                color: black;
+                font-family: arial black;
+		font-size: 16pt;
             }
+
 
             .stickylisttitle {
                 position: -webkit-sticky;
@@ -213,10 +223,7 @@
 
         </div>
 
-        <table class="tddownload">
-
-            <tr>
-                <td class="tdsection">
+<div>
                     <ul id="myUL">
 
                     <li class="section"><a href="#" target="_blank" download>Entire Patrol Guide (Coming Soon)</a></li>
@@ -971,11 +978,6 @@
 <!—END PASTE -->
 
                     </ul>
-                </td>
-
-                       
-                        
-                <td class="tdsection">
 
 <!-- COMMENT OUT LIST OF SECTIONS 
                     
@@ -1752,16 +1754,13 @@
 Comment Out END -->
                     
                     
+	</div>
 
-        </div>
-                    <div class="stickytop">
-                                        <a href="#top" class="section">Back to top of page</a>
-                    </div>
+	<div class="stickytop">
+		<a href="#top" class="stickytoptext">Back to top of page</a>
+	</div>
 
-                </td>
 
-            </tr>
-        </table>
 
         <script>
         function myFunction() {
