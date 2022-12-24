@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Patrol Guide Downloader</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <style>
+            body {
+                background-color: skyblue;
+                width: auto;
+
+            }
+
+            .title {
+                color: black;
+                font-family: helvetica;
+                font-size: 24pt;
+            }
+
+            .sectiontitle {
+                color: black;
+                font-family: helvetica;
+            }
+
+
+            .section {
+                color: black;
+                font-family: helvetica;
+            }
+
+
+
+            .links-list {
+                padding-left: 5 px;
+            }
+
+            .sectionlist {
+                font-family: helvetica;
+            }
+
+            .sectionlisttitle {
+                font-family: helvetica;
+            }
+
+            .stickytitle {
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0px;
+                padding: 0px;
+                padding: 5px;
+                background-color: skyblue;
+                width: auto;
+            }
+
+            .stickysearch {
+                position: -webkit-sticky;
+                position: sticky;
+                background-color: yellow;
+                margin-left: 0px;
+
+                top: 69px;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .stickysection {
+                position: -webkit-sticky;
+                position: sticky;
+                top: 215px;
+                background-color: lightcyan;
+
+                margin-left: 200px;
+                padding: 10px;
+                height: 600px;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+
+
+
+	.stickytop {
+	   position: fixed;
+	   right: 5;
+	   bottom: 5;
+	   width: 20%;
+	   background-color: yellow;
+	   text-align: center;
+		padding-top: 1%;
+		padding-bottom: 1%
+		color: black;
+		font-family: helvetica;
+		    }
+
+
+            .stickylisttitle {
+                position: -webkit-sticky;
+                position: sticky;
+                background-color: skyblue;
+
+                margin-left: 200px;
+                padding: 0px 0px 0px 10px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                top: 159px;
+            }
+
+            .stickydownload {
+                position: -webkit-sticky;
+                position: sticky;
+                background-color: yellow;
+
+                margin-left: 200px;
+                padding: 10px;
+                overflow-x: hidden;
+                overflow-y: hidden;
+                float: none;
+                top: 70px;
+
+            }
+
+
+            .stickysectiontitle {
+                font-family: helvetica;
+                position: -webkit-sticky;
+                position: sticky;
+                padding: 10px;
+                background-color: yellow;
+            }
+
+
+
+            .searchcolumn {
+
+                padding-left: 200px;
+
+            }
+
+            .tdsection {
+                vertical-align:top;
+            }
+
+            .tddownload {
+
+            }
+
+            * {
+              box-sizing: border-box;\
+            }
+
+
+            #myInput {
+
+            width: 100%;
+            font-size: 16px;
+            font-family: helvetica;
+            padding: 10px 60px 10px 60px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+
+            background-image: url('data:image/svg+xml;base64,PHN2ZyAKIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIgogd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgIGZpbGw9InJnYig2OCwgNjgsIDY4KSIKIGQ9Ik0yMy4zNTIsMjIuNjYyIEwyMi42NDUsMjMuMzY5IEMyMi4yNTQsMjMuNzU5IDIxLjYyMSwyMy43NTkgMjEuMjMwLDIzLjM2OSBMMTQuMTk5LDE2LjMzOCBDMTIuNzMwLDE3LjM4MSAxMC45MzksMTguMDAwIDkuMDAwLDE4LjAwMCBDNC4wMjksMTguMDAwIC0wLjAwMCwxMy45NzEgLTAuMDAwLDkuMDAwIEMtMC4wMDAsNC4wMjkgNC4wMjksLTAuMDAwIDkuMDAwLC0wLjAwMCBDMTMuOTcxLC0wLjAwMCAxOC4wMDAsNC4wMjkgMTguMDAwLDkuMDAwIEMxOC4wMDAsMTAuOTQ4IDE3LjM3NSwxMi43NDYgMTYuMzIzLDE0LjIxOSBMMjMuMzUyLDIxLjI0OCBDMjMuNzQyLDIxLjYzOCAyMy43NDIsMjIuMjcxIDIzLjM1MiwyMi42NjIgWk05LjAwMCwyLjAwMCBDNS4xMzQsMi4wMDAgMi4wMDAsNS4xMzQgMi4wMDAsOS4wMDAgQzIuMDAwLDEyLjg2NiA1LjEzNCwxNi4wMDAgOS4wMDAsMTYuMDAwIEMxMi44NjYsMTYuMDAwIDE2LjAwMCwxMi44NjYgMTYuMDAwLDkuMDAwIEMxNi4wMDAsNS4xMzQgMTIuODY2LDIuMDAwIDkuMDAwLDIuMDAwIFoiLz4KPC9zdmc+');
+
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            }
+
+            #myUL {
+              list-style-type: none;
+              padding: 0;
+              margin: 0;
+width: auto;
+
+            }
+
+            #myUL li a {
+
+            border: 1px solid #ddd;
+            margin-top: -1px; /* Prevent double borders */
+            background-color: #f6f6f6;
+            padding: 10px 60px 10px 70px;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            display: block;
+
+            background-image: url('data:image/svg+xml;base64,PHN2ZyAKIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIgogd2lkdGg9IjI5cHgiIGhlaWdodD0iMjdweCI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgIGZpbGw9InJnYigwLCAxMTcsIDIyNikiCiBkPSJNMC4wMDAsMjcuMDAwIEwwLjAwMCw0LjA2MyBMOC4yODEsNC4wNjMgTDguMjgxLDYuMDYzIEwyLjA2Miw2LjA2MyBMMi4wNjIsMjQuOTY5IEwyNi45MzgsMjQuOTY5IEwyNi45MzgsNi4wNjMgTDIwLjcxOSw2LjA2MyBMMjAuNzE5LDQuMDYzIEwyOS4wMDAsNC4wNjMgTDI5LjAwMCwyNy4wMDAgTDAuMDAwLDI3LjAwMCBaTTE0LjUwMCwxNC41ODYgTDE0LjIyNSwxNC44NTAgTDkuNjYxLDkuNzAzIEwxMC42MjYsOC43NzQgTDEzLjgxMiwxMi4zNjcgTDEzLjgxMiwwLjAwMCBMMTUuMTg4LDAuMDAwIEwxNS4xODgsMTIuMzY3IEwxOC4zNzQsOC43NzQgTDE5LjMzOSw5LjcwMyBMMTQuNzc1LDE0Ljg1MCBMMTQuNTAwLDE0LjU4NiBaIi8+Cjwvc3ZnPg==');
+
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            }
+
+            #myUL li a:hover:not(.header) {
+              background-color: #f6ff00;
+
+
+
+
+        </style>
+
+
+
+
+        <script>
+            function search(string) {
+                window.find(string);
+            }
+
+        </script>
+
+
+    </head>
+
+    <body>
+        <a name="top"></a>
+        <div class="stickytitle">
+            <h1 class="title">Patrol Guide Downloader</h1>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for a section" title="Search">
+
+        </div>
+
+<div>
+                    <ul id="myUL">
+
+                    <li class="section"><a href="#" target="_blank" download>Entire Patrol Guide (Coming Soon)</a></li>
+
+<!—BEGIN PASTE-->
+
+                        <hr><li class="section"><a href="#">200: General Information</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/200-02.pdf">200-02 Mission Vision and Values of th...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/200-04.pdf">200-04 Index</a></li>
+                        <hr><li class="section"><a href="#">202: Duties and Responsibilities</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-01.pdf">202-01 Borough Commander</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-01a.pdf">202-01a Borough Executive Officer, Oper...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-01b.pdf">202-01b Borough Executive Officer, Admi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-01c.pdf">202-01c Duty Chief</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-01d.pdf">202-01d Duty Inspector</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-02.pdf">202-02 Borough Adjutant</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-03.pdf">202-03 Borough Operations Commander</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-04.pdf">202-04 Borough Administrator</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-04a.pdf">202-04a Borough Special Projects Coordi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-04b.pdf">202-04b Borough Counterterrorism Coordi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-06.pdf">202-06 Patrol Borough Traffic Safety C...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-07.pdf">202-07 Borough Auxiliary Police Coordi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-08.pdf">202-08 Duty Captain</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-08a.pdf">202-08a Supervisor of Patrol (Captain)</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-09.pdf">202-09 Commanding Officer</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-10.pdf">202-10 Executive Officer</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-10a.pdf">202-10a Commanding Officer Investigatio...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-11.pdf">202-11 Operations Coordinator</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-12.pdf">202-12 Special Operations Lieutenant</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-13.pdf">202-13 Lieutenant - Platoon Commander</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-13a.pdf">202-13a Criminal Justice Bureau - Borou...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-14.pdf">202-14 Desk Officer</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-15.pdf">202-15 Command Integrity Control Offic...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-16.pdf">202-16 Principal Administrative Associ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-17.pdf">202-17 Patrol Supervisor</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-18.pdf">202-18 Supervisor of Anti-Crime Patrol...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-19.pdf">202-19 Training Sergeant</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-19a.pdf">202-19a Traffic Safety Sergeant</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-19b.pdf">202-19b Domestic Violence Sergeant</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-19c.pdf">202-19c Neighborhood Coordination Serge...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-19d.pdf">202-19d Crime Analysis Sergeant</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-19e.pdf">202-19e Field Intelligence Sergeant</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-21.pdf">202-21 Police Officer</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-22.pdf">202-22 Radio Motor Patrol Operator</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-23.pdf">202-23 Radio Motor Patrol Recorder</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-24.pdf">202-24 Motor Scooter Operator</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-25.pdf">202-25 Anti-Crime Police Officer</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-26.pdf">202-26 Crime Prevention Officer</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-28.pdf">202-28 Traffic Safety Officer</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-29.pdf">202-29 Domestic Violence Prevention Of...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-30.pdf">202-30 Youth Coordination Officer</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-31.pdf">202-31 Arrest Processing Officer</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-32.pdf">202-32 Community Affairs Officer</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-32a.pdf">202-32a Neighborhood Coordination Offic...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-34.pdf">202-34 Command Auxiliary Police Coordi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-36.pdf">202-36 Evidence Property Control Speci...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-37.pdf">202-37 Command Clerk</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-38.pdf">202-38 Telephone Switchboard Operator</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-39.pdf">202-39 Patrolwagon Operator</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-40.pdf">202-40 Police Attendant - Uniformed Ci...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-41.pdf">202-41 Field Intelligence Officer</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-42.pdf">202-42 Personnel Administrative Manage...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/202-43.pdf">202-43 Digital Communications Officer</a></li>
+                        <hr><li class="section"><a href="#">203: General Regulations</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-01.pdf">203-01 Order of Rank</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-02.pdf">203-02 Courtesies</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-03.pdf">203-03 Compliance with Orders</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-04.pdf">203-04 Fitness for Duty</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-05.pdf">203-05 Performance on Duty - General</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-06.pdf">203-06 Performance on Duty - Prohibite...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-07.pdf">203-07 Performance on Duty - Personal ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-08.pdf">203-08 False or Misleading Statements</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-09.pdf">203-09 Public Contact - General</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-10.pdf">203-10 Public Contact - Prohibited Con...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-13.pdf">203-13 Financial Restrictions - Prohib...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-14.pdf">203-14 Financial Restrictions - Prohib...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-15.pdf">203-15 Off Duty Conduct - Attendance a...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-16.pdf">203-16 Guidelines for Acceptance of Gi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-17.pdf">203-17 Fund Raising Events</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-18.pdf">203-18 Residence Requirements</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-20.pdf">203-20 Authorized Leave</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-21.pdf">203-21 Integrity Monitoring File</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-22.pdf">203-22 Department Confidentiality Poli...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-23.pdf">203-23 Conducting Ordered Breath Testi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-24.pdf">203-24 Personal Information via Depart...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-25.pdf">203-25 Department Policy Prohibiting R...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-26.pdf">203-26 Extended Leave of Absence - Edu...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-27.pdf">203-27 Department Email Policy</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-28.pdf">203-28 Department Social Media Account...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-29.pdf">203-29 When a Member of the Service En...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-30.pdf">203-30 Facial Hair Policy</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-31.pdf">203-31 Religious Head Covering</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-32.pdf">203-32 Personal Social Media Accounts ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/203-33.pdf">203-33 Command Level Peer Support</a></li>
+                        <hr><li class="section"><a href="#">204: Uniforms and Equipment</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-01.pdf">204-01 General Uniform Regulations</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-02.pdf">204-02 Uniform Classifications</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-03.pdf">204-03 Uniforms</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-04.pdf">204-04 Optional Uniform Items</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-05.pdf">204-05 Purchase and Inspection of New ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-07.pdf">204-07 Lost or Damaged Uniform</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-08.pdf">204-08 Firearms General Regulations</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-09.pdf">204-09 Required Firearms Equipment</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-10.pdf">204-10 Handgun Acquisition Disposition</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-12.pdf">204-12 Repair Replacement of Authorize...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-15.pdf">204-15 Shields Nameplates Identificati...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-16.pdf">204-16 Emblems Insignia and Breast Bar...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-17.pdf">204-17 Mourning Bands</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-18.pdf">204-18 Protective Vest</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-19.pdf">204-19 Protective Vest - Use/Maintenan...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/204-20.pdf">204-20 Dual Purpose Disorder Control/S...</a></li>
+                        <hr><li class="section"><a href="#">205: Personnel Matters</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-01.pdf">205-01 Reporting Sick</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-02.pdf">205-02 Reporting Sick from Outside Cit...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-03.pdf">205-03 Responsibility for Weapons Whil...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-04.pdf">205-04 Department Ambulance Service</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-05.pdf">205-05 Line of Duty Injury or Death Oc...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-06.pdf">205-06 Line of Duty Injury or Death - ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-07.pdf">205-07 Death of Member of the Service</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-08.pdf">205-08 Trauma Counseling Program</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-09.pdf">205-09 Supervision of Members of the S...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-10.pdf">205-10 Exposure of Members of the Serv...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-11.pdf">205-11 Request for Pre-Exposure Vaccin...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-12.pdf">205-12 Donating or Requesting Blood fr...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-13.pdf">205-13 Requesting Blood When Outside N...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-14.pdf">205-14 Uniformed Members of the Servic...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-16.pdf">205-16 Integrity Review Board Recommen...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-17.pdf">205-17 Overtime</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-18.pdf">205-18 Absent Without Leave</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-19.pdf">205-19 Vacation Lost Due to Sick Leave</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-20.pdf">205-20 Leave of Absence Without Pay Tw...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-21.pdf">205-21 Leave of Absence Without Pay Th...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-22.pdf">205-22 Definite Military Leave</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-23.pdf">205-23 Indefinite Military Leave</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-24.pdf">205-24 Special Leave for Former Member...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-26.pdf">205-26 Jury Duty Leave for Uniformed M...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-27.pdf">205-27 Pregnancy Related Guidelines fo...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-28.pdf">205-28 Child Care Leave of Absence</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-29.pdf">205-29 Random Drug Screening for Unifo...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-30.pdf">205-30 Drug Screening Tests for Cause ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-31.pdf">205-31 Drug Screening Tests for Unifor...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-32.pdf">205-32 Random Drug Screening for Unifo...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-33.pdf">205-33 Drug Screening Tests for Unifor...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-34.pdf">205-34 Drug Screening for Uniformed Me...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-35.pdf">205-35 Voluntary Drug Testing</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-36.pdf">205-36 Employment Discrimination</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-37.pdf">205-37 Sexual Ethnic Racial Religious ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-38.pdf">205-38 Investigations of Incidents of ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-39.pdf">205-39 Departmental Recognition - Unif...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-40.pdf">205-40 Uniformed Member - Off Duty Emp...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-41.pdf">205-41 Finest Ideas Program</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-42.pdf">205-42 Discontinuance of Police Servic...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-43.pdf">205-43 Discontinuation of Police Servi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-44.pdf">205-44 Pistol License for Retiring Mem...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-45.pdf">205-45 Chronic Absence Control Program</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-46.pdf">205-46 Counseling Services Unit</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-47.pdf">205-47 Temporary Removal of Firearms i...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-48.pdf">205-48 Evaluations - General - Members...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-49.pdf">205-49 Evaluation of Probationary Poli...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-50.pdf">205-50 Evaluation of Police Officers a...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-51.pdf">205-51 Evaluations of Police Officers ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-52.pdf">205-52 Evaluation of Sergeants / Lieut...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-53.pdf">205-53 Evaluation of Sub-Managerial Ci...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-54.pdf">205-54 Evaluation of Captain Through D...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-55.pdf">205-55 Evaluation of Assistant Chiefs ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-57.pdf">205-57 Police Officer Detective Specia...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-58.pdf">205-58 Appeal of Evaluation - Uniforme...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-59.pdf">205-59 Appeal of Evaluation - Civilian...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-60.pdf">205-60 Reporting to Department Surgeon...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-61.pdf">205-61 Notifying Court, Trial Room or ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-62.pdf">205-62 Firearms Proficiency Requiremen...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-63.pdf">205-63 Monitoring Off-Duty Visits to I...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-64.pdf">205-64 Law Enforcement Officers Safety...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-65.pdf">205-65 Department Medals – Uniformed M...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-66.pdf">205-66 Counseling Services Unit Drug S...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-67.pdf">205-67 End of Probation Drug Screening...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-68.pdf">205-68 Member of the Service Seeking t...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/205-69.pdf">205-69 Vacation Policy</a></li>
+                        <hr><li class="section"><a href="#">206: Disciplinary Matters</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-01.pdf">206-01 Reporting Violations Observed b...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-02.pdf">206-02 Schedule 'A' and Schedule 'B' C...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-03.pdf">206-03 Violations Subject to Command D...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-04.pdf">206-04 Authorized Penalties Under Comm...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-05.pdf">206-05 Preparation of Charges and Spec...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-06.pdf">206-06 Service and Disposition of Char...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-07.pdf">206-07 Cause for Suspension or Modifie...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-08.pdf">206-08 Suspension From Duty Uniformed ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-09.pdf">206-09 Suspension from Duty - Civilian...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-10.pdf">206-10 Modified Assignment</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-11.pdf">206-11 Member of the Service Arrested ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-12.pdf">206-12 Removal of Firearms from Intoxi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-13.pdf">206-13 Interrogation of Members of the...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-14.pdf">206-14 Sealing Disciplinary Records</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-15.pdf">206-15 Sealing Disciplinary Charges</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-17.pdf">206-17 Removal and Restoration of Fire...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-18.pdf">206-18 Citywide Command Discipline Sys...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-19.pdf">206-19 Orders of Protection Served on ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/206-20.pdf">206-20 Orders of Protection Prohibitin...</a></li>
+                        <hr><li class="section"><a href="#">207: Complaints</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-01.pdf">207-01 Complaint Reporting System</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-02.pdf">207-02 Complaints Not Recorded on Comp...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-03.pdf">207-03 Voiding Complaint Reports</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-04.pdf">207-04 Reporting of Complaints Occurri...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-05.pdf">207-05 Duplicate Copies of Complaint R...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-06.pdf">207-06 Notifications</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-07.pdf">207-07 Preliminary Investigation of Co...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-08.pdf">207-08 Preliminary Investigation of Vi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-09.pdf">207-09 Follow-up Investigations of Com...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-10.pdf">207-10 Bias Motivated Incidents</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-11.pdf">207-11 Preliminary Investigation Recor...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-12.pdf">207-12 Lost or Stolen Property Identit...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-13.pdf">207-13 Lost/Stolen Vehicle Plates, Lic...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-14.pdf">207-14 Robbery Complaints Involving Po...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-15.pdf">207-15 Threats to Complainants and Wit...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-16.pdf">207-16 Overdue Rental Vehicles</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-17.pdf">207-17 Contraband Weapons</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-18.pdf">207-18 Complaints Involving Credit Car...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-19.pdf">207-19 Thefts from Department Lockers</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-20.pdf">207-20 Investigation of Crimes Involvi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-21.pdf">207-21 Allegations of Corruption and O...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-22.pdf">207-22 Allegations of Corruption Again...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-23.pdf">207-23 Missing Persons</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-25.pdf">207-25 Notifications from Caseworkers ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-26.pdf">207-26 Voluntary Surrender of Weapons ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-27.pdf">207-27 Voluntary Surrender of Weapons ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-28.pdf">207-28 Recording of Complaints Occurri...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-29.pdf">207-29 Field Reports</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-30.pdf">207-30 Civilian Complaints - Witness S...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-31.pdf">207-31 Processing Civilian Complaints</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-32.pdf">207-32 Investigation of Carjackings</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-33.pdf">207-33 Recording Enforcement Incidents</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-34.pdf">207-34 Complaints Involving Identity T...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-35.pdf">207-35 Silver Alert System</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-36.pdf">207-36 Complaints Involving Cellular T...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-37.pdf">207-37 Operational Guidelines for Proc...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/207-38.pdf">207-38 Complaints Involving Sex Crimes</a></li>
+                        <hr><li class="section"><a href="#">208: Arrests</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-01.pdf">208-01 Law of Arrest</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-02.pdf">208-02 Arrests - Removal to Department...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-03.pdf">208-03 Arrests - General Processing</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-04.pdf">208-04 Arrest by a Civilian</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-05.pdf">208-05 Arrest - General Search Guideli...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-06.pdf">208-06 Arrests - Security Measures</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-07.pdf">208-07 Photographable Offenses</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-08.pdf">208-08 Fingerprintable and Palmprintab...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-09.pdf">208-09 Rights of Persons Taken Into Cu...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-10.pdf">208-10 Alternate Procedure for Arrest ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-11.pdf">208-11 Arrest Processing - "Livescan" ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-12.pdf">208-12 Alternate Procedure for Fingerp...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-13.pdf">208-13 Arrest Report Supplement</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-14.pdf">208-14 Arrest by Uniformed Member Outs...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-15.pdf">208-15 Arrest Report Preparation at St...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-16.pdf">208-16 Arrest Processing Indicators</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-17.pdf">208-17 Change in Arrest Charges</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-20.pdf">208-20 "Turnover" Arrests</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-22.pdf">208-22 Performing Local State and Fede...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-23.pdf">208-23 Computerized Investigation Card...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-24.pdf">208-24 Identification Lineups Showups</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-25.pdf">208-25 First and Third Platoon Arrests</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-26.pdf">208-26 Forfeiture Proceedings for Seiz...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-27.pdf">208-27 Desk Appearance Ticket - Genera...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-28.pdf">208-28 Desk Appearance Ticket - Identi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-30.pdf">208-30 Desk Appearance Ticket - Hospit...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-34.pdf">208-34 Bribery Arrest by Uniformed Mem...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-35.pdf">208-35 Attempted Bribery of uniformed ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-36.pdf">208-36 Family Offenses Domestic Violen...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-37.pdf">208-37 Family Offenses and Domestic Vi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-38.pdf">208-38 New York State Order of Protect...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-39.pdf">208-39 Family Offenses Domestic Violen...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-40.pdf">208-40 Intoxicated or Impaired Driver ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-41.pdf">208-41 Persons Under Twenty-One Operat...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-42.pdf">208-42 Arrest on a Warrant</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-44.pdf">208-44 Prostitution</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-45.pdf">208-45 Loitering for Purposes of Prost...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-46.pdf">208-46 Gambling</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-47.pdf">208-47 Counterfeiting/Forging US Gover...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-48.pdf">208-48 Violation of Postal Laws</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-49.pdf">208-49 Contraband Weapons</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-50.pdf">208-50 Certificate of Warrant (Non-Sup...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-52.pdf">208-52 Traffic Violations</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-53.pdf">208-53 Arrest Processing - Aggravated ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-54.pdf">208-54 Arrest Screening Guidelines for...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-55.pdf">208-55 Vehicle of Foreign Registry</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-56.pdf">208-56 Foreign Nationals</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-57.pdf">208-57 Holders of Licenses Issued by N...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-58.pdf">208-58 Taxicab and Towing Truck Owners...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-59.pdf">208-59 Felony Arrests of Parolees</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-60.pdf">208-60 Delivery of Felony Warrant Defe...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-61.pdf">208-61 Material Witness</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-62.pdf">208-62 Transient Prisoner</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-65.pdf">208-65 Felony Augmentation Program</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-66.pdf">208-66 Felony Case Development</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-67.pdf">208-67 Follow-Up Investigations on "De...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-68.pdf">208-68 OLBS Computerized Arrest Notifi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-69.pdf">208-69 Notifications in Certain Arrest...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-70.pdf">208-70 Processing of New York State Do...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-71.pdf">208-71 Documentation of Activity of Ba...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-72.pdf">208-72 Obtaining Prisoner DNA Sample</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-73.pdf">208-73 Notification to the Detective B...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-74.pdf">208-74 Arrest Processing of Persons Wa...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-75.pdf">208-75 Enhancement of Offenses Involvi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-76.pdf">208-76 New York City Housing Authority...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-77.pdf">208-77 Processing Arrests Made Pursuan...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-78.pdf">208-78 Returning an Individual to Cour...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-79.pdf">208-79 Diversion of Individuals Arrest...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-80.pdf">208-80 Vacating Summons Adjudication P...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-81.pdf">208-81 Desk Appearance Ticket - Disqua...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/208-82.pdf">208-82 Desk Appearance Ticket - Confer...</a></li>
+                        <hr><li class="section"><a href="#">209: Summonses</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-01.pdf">209-01 Conditions of Service</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-02.pdf">209-02 Summonses and Notices of Violat...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-03.pdf">209-03 Civil Summons Returnable to the...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-04.pdf">209-04 Summons Return Date and Time</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-06.pdf">209-06 Quality Control Procedures for ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-07.pdf">209-07 Parking Summonses - General Pro...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-08.pdf">209-08 Parking Violations Summons - Gr...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-09.pdf">209-09 Personal Service of Summonses R...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-10.pdf">209-10 Traffic Violations Bureau Summo...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-11.pdf">209-11 Criminal Court Summons - Graphi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-12.pdf">209-12 Personal Service of Civil Summo...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-14.pdf">209-14 Civil Summons Returnable to the...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-15.pdf">209-15 Transit Adjudication Bureau - N...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-16.pdf">209-16 Service of a Summons - Special ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-17.pdf">209-17 Report Instead of Summons</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-18.pdf">209-18 Summons Served or Prepared in E...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-19.pdf">209-19 Transit Adjudication Bureau - N...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-20.pdf">209-20 Summons Served Outside Permanen...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-21.pdf">209-21 Summons Served Outside Permanen...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-22.pdf">209-22 Summons Notification</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-23.pdf">209-23 Taxi and Limousine Commission N...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-24.pdf">209-24 Mandatory Driver's License Chec...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-25.pdf">209-25 Processing Warrant Checks Over ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-26.pdf">209-26 Suspended or Revoked Vehicle Op...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-27.pdf">209-27 Service of a Summons - Removal ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-28.pdf">209-28 Unlicensed Tow Truck Operators</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-29.pdf">209-29 Seizure of Unlicensed Tow Truck</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-30.pdf">209-30 Summons Served on Vehicle Used ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-31.pdf">209-31 Statement of Correction by a Po...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-32.pdf">209-32 Release of Vehicles Prior to To...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-33.pdf">209-33 Parental Notification for Crimi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-34.pdf">209-34 To Truck Enforcement Common Sum...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-35.pdf">209-35 Pleading Guilty by Mail for Cri...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-36.pdf">209-36 Electronic Summons Tracking Sys...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-37.pdf">209-37 Enforcement and or Invoicing of...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-38.pdf">209-38 Unlawful Possession of Marijuan...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/209-39.pdf">209-39 Personal Service of Transit Adj...</a></li>
+                        <hr><li class="section"><a href="#">210: Prisoners</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/210-01.pdf">210-01 Prisoners General Procedure</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/210-02.pdf">210-02 Hospitalized Prisoners</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/210-03.pdf">210-03 Hospitalized Prisoners - Arrest...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/210-04.pdf">210-04 Prisoners Requiring Medical Psy...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/210-05.pdf">210-05 Bedside Arraignment</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/210-06.pdf">210-06 Prisoners' Meals</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/210-07.pdf">210-07 Prisoners - Unusual Occurrence</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/210-08.pdf">210-08 Guidelines for Prisoner Holding...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/210-13.pdf">210-13 Release of Prisoners</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/210-14.pdf">210-14 Release of Prisoner - Narcotic ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/210-15.pdf">210-15 Release of Prisoners Arrested b...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/210-16.pdf">210-16 Release of Prisoner at the Comp...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/210-17.pdf">210-17 Arrest Processing of Pre-Arraig...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/210-18.pdf">210-18 Debriefing of Prisoners</a></li>
+                        <hr><li class="section"><a href="#">211: Court and Agency 
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-01.pdf">211-01 Duties and Conduct in Court</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-04.pdf">211-04 Computerized Court Appearance C...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-05.pdf">211-05 Processing Notifications to App...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-06.pdf">211-06 Criminal/Civil Court Telephone ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-07.pdf">211-07 Prevention of Court Appearance ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-08.pdf">211-08 Documenting and Reporting Court...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-09.pdf">211-09 Appearances by Members of the S...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-10.pdf">211-10 Traffic Violations Bureau Notif...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-11.pdf">211-11 Traffic Violations Bureau Appea...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-12.pdf">211-12 Hearings at Department of Motor...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-13.pdf">211-13 Official Appearances at Departm...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-14.pdf">211-14 Investigations by Civilian Comp...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-15.pdf">211-15 Processing Subpoenas for Police...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-16.pdf">211-16 Subpoenas Issued by Courts Outs...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-17.pdf">211-17 Processing Legal Bureau Request...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-18.pdf">211-18 Processing Request for Police D...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-19.pdf">211-19 New York City Transit Law Torts...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-20.pdf">211-20 Conferral with Department Attor...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/211-21.pdf">211-21 Obtaining Assistance of Corpora...</a></li>
+                        <hr><li class="section"><a href="#">212: Command Operations</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-01.pdf">212-01 Roll Call Formations</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-02.pdf">212-02 Meal Period</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-03.pdf">212-03 Expiration of Tour</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-04.pdf">212-04 Crime Scene</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-05.pdf">212-05 Crime Scene Investigations Affe...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-06.pdf">212-06 Radio Motor Patrol Transport Re...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-07.pdf">212-07 Transporting Non-Member of the ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-08.pdf">212-08 Activity Logs</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-09.pdf">212-09 Unusual Occurrence Reports</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-10.pdf">212-10 Interrupted Patrol Log</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-11.pdf">212-11 Investigative Encounters: Reque...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-12.pdf">212-12 Citywide Intelligence Reporting...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-13.pdf">212-13 Reporting Gang-Related Criminal...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-14.pdf">212-14 Traffic Intelligence Report</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-15.pdf">212-15 Lojack Stolen Vehicle Recovery ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-16.pdf">212-16 Evacuations of New York City Tr...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-17.pdf">212-17 Procedures at Scenes of Critica...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-18.pdf">212-18 Searches For Armed Dangerous Pe...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-19.pdf">212-19 Animals on New York City Public...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-20.pdf">212-20 Ejection from New York City Tra...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-21.pdf">212-21 Photography on the New York Cit...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-22.pdf">212-22 Malfunction of Transit Bureau R...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-23.pdf">212-23 Inspection of Rapid Transit Sta...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-24.pdf">212-24 Removal of Power in Subway</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-26.pdf">212-26 Inspection of New York City Hou...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-28.pdf">212-28 Disabled Housing Authority Elev...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-32.pdf">212-32 Off Duty Incidents Involving Un...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-34.pdf">212-34 Probationary Police Officer, Po...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-35.pdf">212-35 Incidents Involving Enforcement...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-36.pdf">212-36 Incidents Involving Former / Re...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-37.pdf">212-37 Hazardous Materials</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-40.pdf">212-40 Bomb Threats Unattended Article...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-41.pdf">212-41 Alarms - Department of Educatio...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-43.pdf">212-43 Vacate Orders for Residential B...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-44.pdf">212-44 Response to Firearms Dealers Lo...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-45.pdf">212-45 Foreign National Requesting Asy...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-46.pdf">212-46 Unlawful Possession of Rifles/S...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-47.pdf">212-47 Counterfeit Money</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-48.pdf">212-48 Motor Vehicles Repossessed/Park...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-49.pdf">212-49 Incidents Involving Media Repre...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-50.pdf">212-50 Aircraft Violations</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-51.pdf">212-51 Response to Work Disruptions at...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-52.pdf">212-52 Labor Dispute</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-54.pdf">212-54 Person Threatening to Jump from...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-55.pdf">212-55 Investigation of Aided Cases In...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-56.pdf">212-56 Diplomatic Incidents</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-57.pdf">212-57 Service of Family Court Supreme...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-58.pdf">212-58 Fire</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-60.pdf">212-60 Interior Patrol of Housing Auth...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-61.pdf">212-61 Burglary Robbery Apprehension M...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-65.pdf">212-65 Bicycle Patrol</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-66.pdf">212-66 City Policy Concerning Identify...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-67.pdf">212-67 Police/Clergy Program</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-68.pdf">212-68 Confidential Informants</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-69.pdf">212-69 Involuntary Protection Service</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-70.pdf">212-70 Civilian Commendations (Non-Mem...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-71.pdf">212-71 Guidelines for the Use of Video...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-72.pdf">212-72 Guidelines for Uniformed Member...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-73.pdf">212-73 Bicycle Registration Program</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-74.pdf">212-74 Community Notification Protocol</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-75.pdf">212-75 Search Warrant Applications</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-76.pdf">212-76 Information Concerning Official...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-77.pdf">212-77 Release of Information to News ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-78.pdf">212-78 Utilization of the Real Time Cr...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-79.pdf">212-79 Subpoena Fees and Accounting Pr...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-80.pdf">212-80 Suspension and Revocation Order...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-81.pdf">212-81 Unauthorized Display of Badges,...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-82.pdf">212-82 Forwarding of Fees to Audits an...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-83.pdf">212-83 Leaving City on Official Busine...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-84.pdf">212-84 Verification of Pistol License</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-85.pdf">212-85 Rifle/Shotgun Permit Suspended,...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-86.pdf">212-86 Primary General and Special Ele...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-87.pdf">212-87 Primary General and Special Ele...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-88.pdf">212-88 Primary General and Special Ele...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-90.pdf">212-90 Guidelines for Interaction with...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-91.pdf">212-91 Department Requests for New Yor...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-99.pdf">212-99 Amber Alert System</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-100.pdf">212-100 Auxiliary Police Supervision an...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-101.pdf">212-101 Processing Unknown Substances S...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-102.pdf">212-102 Personal Radiation Detection Pa...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-103.pdf">212-103 Crime Information Centers</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-104.pdf">212-104 Interaction with Hearing Impair...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-106.pdf">212-106 Search Warrant Post-Execution C...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-107.pdf">212-107 Secure Automated Fast Event Tra...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-108.pdf">212-108 Notifications to the Intelligen...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-110.pdf">212-110 Communications Between the Inte...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-111.pdf">212-111 Requests for U Visa Certificati...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-112.pdf">212-112 Operation Safe Store</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-114.pdf">212-114 Authorization Notification Rega...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-116.pdf">212-116 Street Narcotics Enforcement Un...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-118.pdf">212-118 Incidents Involving Holders of ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-119.pdf">212-119 Investigations of Animal Abuse</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-121.pdf">212-121 Unauthorized Radio Transmission</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-122.pdf">212-122 Request to Archive and or Obtai...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-123.pdf">212-123 Use of Body-Worn Cameras</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-124.pdf">212-124 Use of Department Unmanned Airc...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-125.pdf">212-125 Crime Victim Assistance Program...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-126.pdf">212-126 Requests to Provide City Resour...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-127.pdf">212-127 Gunshot Detection Alerts</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-128.pdf">212-128 Extreme Risk Protection Order</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-129.pdf">212-129 Facial Recognition Technology</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/212-130.pdf">212-130 Accessing New York City Departm...</a></li>
+                        <hr><li class="section"><a href="#">213: Mobilizations/Emergency 
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-02.pdf">213-02 Emergency Incidents</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-03.pdf">213-03 Rapid Mobilization</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-04.pdf">213-04 Mobilization Readiness Levels</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-05.pdf">213-05 Duties at an Unusual Disorder</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-06.pdf">213-06 Large Scale Arrest Processing P...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-07.pdf">213-07 Unusual Disorder Maps</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-08.pdf">213-08 Unusual Disorder Plan - Formula...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-09.pdf">213-09 Unusual Disorder Kits</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-10.pdf">213-10 Emergency Mobilization of Off D...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-11.pdf">213-11 Policing Special Events Crowd C...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-12.pdf">213-12 Apprehension Plan</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-13.pdf">213-13 Emergency Plans "A" - "B" - "C"</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-15.pdf">213-15 Duties and Responsibilities at ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-16.pdf">213-16 Relocation of Vehicles During S...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-17.pdf">213-17 Notifications Regarding Traffic...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-18.pdf">213-18 Citywide Security Alert Levels</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/213-19.pdf">213-19 Interoperability Channels</a></li>
+                        <hr><li class="section"><a href="#">214: Quality of Life Matters</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-02.pdf">214-02 Narcotics Eviction Program</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-03.pdf">214-03 Graffiti Reward Program</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-05.pdf">214-05 Selection and Utilization of Au...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-06.pdf">214-06 Homeless Contact Guidelines for...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-07.pdf">214-07 Cases for Legal Action Program</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-08.pdf">214-08 Chronic Abuser Alarm Procedures</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-09.pdf">214-09 Taxi and Limousine Commission P...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-10.pdf">214-10 Unlawful Posting of Signs</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-11.pdf">214-11 Enforcement Activities Regardin...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-12.pdf">214-12 Unlawful Evictions</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-13.pdf">214-13 Evictions Repossessions and Oth...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-14.pdf">214-14 Driveway Tow Program</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-15.pdf">214-15 Anonymous Controlled Substance ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-16.pdf">214-16 Construction Sites</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-17.pdf">214-17 Vacant Buildings</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-18.pdf">214-18 Stop Work Orders</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-19.pdf">214-19 Using Chains and Padlocks to Se...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-20.pdf">214-20 Repair of Entrances Damaged Dur...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-21.pdf">214-21 Project Safe - Escorts for Safe...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-22.pdf">214-22 Weekly Street Conditions Survey...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-23.pdf">214-23 Unreasonable Noise Violations</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-24.pdf">214-24 Service of Civil Summons Return...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-25.pdf">214-25 Deactivation of Motor Vehicle A...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-26.pdf">214-26 Snow Emergency Regulations</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-27.pdf">214-27 Snow Removal</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-29.pdf">214-29 Derelict Vehicles Bearing Regis...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-30.pdf">214-30 Removal of Expired Registration...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-31.pdf">214-31 Removal of Vehicles from Parkwa...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-32.pdf">214-32 Discarded Refrigerators Freezer...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-33.pdf">214-33 Care and Disposition of Animals</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-34.pdf">214-34 Police Action in Premises (Lice...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-35.pdf">214-35 Processing Quality of Life Serv...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-36.pdf">214-36 Response to Complaints of Viola...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-37.pdf">214-37 New York City Department of Bui...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-38.pdf">214-38 Inspections of Pawnbrokers and ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-39.pdf">214-39 Criteria for Selecting a Locati...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/214-40.pdf">214-40 Mediation Referral Program for ...</a></li>
+                       <hr><li class="section"><a href="#">215: Juvenile Matters</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-01.pdf">215-01 Children or Minors Requiring Ca...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-02.pdf">215-02 Lost Child</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-03.pdf">215-03 Emergency Removals or Investiga...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-04.pdf">215-04 Family Court Warrant for Child ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-05.pdf">215-05 Runaway Children</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-07.pdf">215-07 Truants</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-08.pdf">215-08 On-Line Juvenile Report System</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-09.pdf">215-09 Offense Committed by a Juvenile...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-10.pdf">215-10 Arrest of Juvenile Offender or ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-11.pdf">215-11 Arrest of Juvenile Unlawfully i...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-12.pdf">215-12 Personal Recognizance Juvenile ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-13.pdf">215-13 Handcuffing Restraining Student...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-14.pdf">215-14 Child Advocacy Referrals in the...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-15.pdf">215-15 Confiscation of New York City T...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-16.pdf">215-16 Reporting and Recording Public ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-17.pdf">215-17 Police Actions Related Question...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-18.pdf">215-18 Search Protocols for School Saf...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-19.pdf">215-19 Abandoned Infants Operation Saf...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-20.pdf">215-20 Requests for Information from t...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-21.pdf">215-21 Utilization of the Juvenile Des...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-22.pdf">215-22 Requests for Assistance from Ad...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-23.pdf">215-23 Court Processing of Arrests of ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-24.pdf">215-24 Photographing Juveniles Charged...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-25.pdf">215-25 Child Custody Exchanges Occurri...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-26.pdf">215-26 Issuance of WARNING CARD (PD277...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-27.pdf">215-27 School-Related Threats at a NYC...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/215-28.pdf">215-28 Use of Child Car Seats</a></li>
+                        <hr><li class="section"><a href="#">216: Aided Cases</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-01.pdf">216-01 Aided Cases General Procedure</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-02.pdf">216-02 Preparation of Aided Report</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-03.pdf">216-03 Unidentified Persons</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-04.pdf">216-04 Dead Human Body General Procedu...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-06.pdf">216-06 Mental Health Removal Orders</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-07.pdf">216-07 Firearm Safety Stations at Psyc...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-08.pdf">216-08 Persons Overcome by Gas Drugs o...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-09.pdf">216-09 Animal Bites</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-10.pdf">216-10 Taxicab Drivers</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-11.pdf">216-11 Communicable Disease</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-12.pdf">216-12 School Crossing Guard Injured W...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-13.pdf">216-13 Line of Duty Injury or Death - ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-14.pdf">216-14 Aided Cases on New York City Tr...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-15.pdf">216-15 Notifications</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-16.pdf">216-16 Suspicious Death or Suicide in ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-17.pdf">216-17 Involuntary Removals Pursuant t...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-18.pdf">216-18 Child Window Fall Report</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-19.pdf">216-19 Public Access Defibrillation Pr...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-20.pdf">216-20 Handling Shelter Clients with T...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-21.pdf">216-21 Response to Carbon Monoxide Ala...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-22.pdf">216-22 Mobile Crisis Outreach Teams an...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/216-23.pdf">216-23 Response to Suspected Overdose ...</a></li>
+                        <hr><li class="section"><a href="#">217: Vehicle Collisions</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-01.pdf">217-01 Vehicle Collisions - General Pr...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-02.pdf">217-02 Vehicle Collisions Which Result...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-03.pdf">217-03 Vehicle Collisions Which Result...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-04.pdf">217-04 Accidents and Collisions - City...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-05.pdf">217-05 Leaving the Scene of a Collisio...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-06.pdf">217-06 Department Vehicle Collisions</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-07.pdf">217-07 Collisions - Private Vehicles A...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-08.pdf">217-08 Aircraft Accidents</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-09.pdf">217-09 Directed Accident Response Prog...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-10.pdf">217-10 Accidents - Department Property</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-11.pdf">217-11 Accidents - New York City Housi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-12.pdf">217-12 Notifications - Certain Acciden...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-13.pdf">217-13 Preparing, Amending, and Releas...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-14.pdf">217-14 Preparation of Police Accident ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-15.pdf">217-15 Collision Report Police Departm...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-16.pdf">217-16 Chemical Test Warrant Applicati...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-17.pdf">217-17 Bicycle Collisions - General Pr...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/217-18.pdf">217-18 Vehicle Collision - Pedestrian ...</a></li>
+                        <hr><li class="section"><a href="#">218: Property - General</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-01.pdf">218-01 Invoicing Property - General Pr...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-02.pdf">218-02 Return of Property Vehicles at ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-03.pdf">218-03 Delivery of Property Other Than...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-04.pdf">218-04 Delivery of Evidence to the Pol...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-05.pdf">218-05 Recording of Arrest and Propert...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-06.pdf">218-06 Temporary Removal of Invoiced P...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-07.pdf">218-07 Removal and Return of Evidence ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-08.pdf">218-08 Field Testing of Marijuana by A...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-09.pdf">218-09 Evidence Other Than Controlled ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-10.pdf">218-10 Using Security Lead Seals or Pl...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-11.pdf">218-11 Use of Biohazard Labels</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-12.pdf">218-12 Safeguarding Vehicles in Police...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-13.pdf">218-13 Inventory Searches of Automobil...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-14.pdf">218-14 Vehicle Stolen and Recovered wi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-15.pdf">218-15 Vehicle Stolen Outside New York...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-16.pdf">218-16 Vehicle Stolen Within New York ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-18.pdf">218-18 Photographing Stolen Evidence V...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-19.pdf">218-19 Invoicing Vehicles Property as ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-20.pdf">218-20 Delivery of Vehicle to Property...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-21.pdf">218-21 Rotation Tow</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-22.pdf">218-22 Processing Boats in Police Cust...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-23.pdf">218-23 Processing Firearms and Firearm...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-24.pdf">218-24 Processing Controlled Substance...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-25.pdf">218-25 Processing Controlled Substance...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-26.pdf">218-26 Processing Found Property</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-27.pdf">218-27 Found Property Retained by an I...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-28.pdf">218-28 Safeguarding Property of Deceas...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-29.pdf">218-29 Invoicing Property Removed from...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-30.pdf">218-30 Invoicing Property Taken from a...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-31.pdf">218-31 Processing Computer Evidence</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-32.pdf">218-32 Processing Alcohol Seized in AB...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-33.pdf">218-33 Processing Sexual Offense Colle...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-34.pdf">218-34 Property of the Division of the...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-35.pdf">218-35 Processing Currency Required as...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-36.pdf">218-36 Processing Non-Evidence Currenc...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-37.pdf">218-37 Handling of Red Dye Marked Curr...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-38.pdf">218-38 Processing of Currency Negotiab...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-39.pdf">218-39 Seizure Removal and Disposition...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-40.pdf">218-40 General Vendor Distributor Forf...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-41.pdf">218-41 Unlicensed Peddler Forfeiture P...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-42.pdf">218-42 Obtaining and Returning of Prop...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-43.pdf">218-43 Removal and Storage Fees for Li...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-44.pdf">218-44 Removal and Storage Charges</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-45.pdf">218-45 Handgun License Suspension Revo...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-46.pdf">218-46 Processing of Found Property Re...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-48.pdf">218-48 Vehicle Seizure at Time of Arre...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-49.pdf">218-49 Immediate Delivery of DNA Evide...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-50.pdf">218-50 Prisoner Cellular Telephone(s)</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-51.pdf">218-51 Suspect Evidence Collection Kit...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-53.pdf">218-53 Processing Fireworks Evidence</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-54.pdf">218-54 Preparation of Request for Labo...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-55.pdf">218-55 Retention of Invoiced Property</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-56.pdf">218-56 Change of Category for Invoiced...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/218-57.pdf">218-57 Invoicing Property Due to Appli...</a></li>
+                        <hr><li class="section"><a href="#">219: Department Property</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-01.pdf">219-01 Inspection of Department Vehicl...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-02.pdf">219-02 Weekly Inspection of Department...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-03.pdf">219-03 Preventive Maintenance Inspecti...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-04.pdf">219-04 Washing Department Vehicles</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-05.pdf">219-05 Tire Repairs - Except Motorcycl...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-06.pdf">219-06 Tire Replacement on Department ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-07.pdf">219-07 Authorized Tire Repair Stations...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-08.pdf">219-08 Tire Chains</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-09.pdf">219-09 Department Tow</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-10.pdf">219-10 Unmarked Department Vehicle Uti...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-11.pdf">219-11 Computerized Fuel Dispensing Sy...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-12.pdf">219-12 Delivery of Gasoline to Fuel Di...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-13.pdf">219-13 Delivery of Heating Oil</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-14.pdf">219-14 Department Computer Systems</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-15.pdf">219-15 Portable Radio Transceivers</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-17.pdf">219-17 Use of Patrol Kits</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-18.pdf">219-18 Inspection of Supplies</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-19.pdf">219-19 Inspection of Department Locker...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-20.pdf">219-20 Loss or Theft of Department Pro...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-21.pdf">219-21 Lost Stolen Firearm Shield Iden...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-22.pdf">219-22 Operation of Vending Machines W...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-23.pdf">219-23 Solar Cellular Callboxes</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-24.pdf">219-24 Utilization of and Accountabili...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-25.pdf">219-25 E-Z Pass Tags</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-26.pdf">219-26 Acquisition and Use of Departme...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-27.pdf">219-27 Issuance and Maintenance of Rad...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-28.pdf">219-28 Emergency Power Outages</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-29.pdf">219-29 Distribution Use of NYPD Restri...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-30.pdf">219-30 Issuance and Maintenance of Rad...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-31.pdf">219-31 License Plate Reader Devices</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/219-32.pdf">219-32 Department Mobile Digital Devic...</a></li>
+                       <hr><li class="section"><a href="#">220: Citywide Incident 
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-01.pdf">220-01 CIMS: Organizational Structure</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-02.pdf">220-02 CIMS: Primary Agency Matrix</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-03.pdf">220-03 CIMS: Agency Core Competencies ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-04.pdf">220-04 CIMS: Agency Roles</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-05.pdf">220-05 CIMS: Command Element</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-06.pdf">220-06 CIMS: Public Information Office...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-07.pdf">220-07 CIMS: Safety Officer</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-08.pdf">220-08 CIMS: Liaison Officer</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-09.pdf">220-09 CIMS: Operations Section Chief</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-10.pdf">220-10 CIMS: Planning Section Chief</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-11.pdf">220-11 CIMS: Logistics Section Chief</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-12.pdf">220-12 CIMS: Finance / Administration ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-13.pdf">220-13 CIMS: Intelligence / Investigat...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-14.pdf">220-14 CIMS: Supporting Agencies and A...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-15.pdf">220-15 CIMS: Coordinating Agency</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-16.pdf">220-16 CIMS: Integrated Communications</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-17.pdf">220-17 CIMS: Transfer of Command</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-18.pdf">220-18 CIMS: Incident Sequence</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-19.pdf">220-19 CIMS: Incident Facilities</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-20.pdf">220-20 CIMS: Incident Facilities - Sta...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-21.pdf">220-21 CIMS: Incident Facilities - Air...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-22.pdf">220-22 CIMS: Demobilization</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-23.pdf">220-23 CIMS: Air Operations</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-24.pdf">220-24 CIMS: “Check In” Process</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-25.pdf">220-25 CIMS: Resources</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-26.pdf">220-26 CIMS: Resource Assignments</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-27.pdf">220-27 Citywide Incident Management Sy...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/220-28.pdf">220-28 Citywide Incident Management Sy...</a></li>
+                     <hr><li class="section"><a href="#">221: Tactical Operations</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-01.pdf">221-01 Force Guidelines</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-02.pdf">221-02 Use of Force</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-03.pdf">221-03 Reporting and Investigation of ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-04.pdf">221-04 Firearms Discharge by Uniformed...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-05.pdf">221-05 Person Dies or Sustains a Serio...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-06.pdf">221-06 Member of the Service Subjected...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-07.pdf">221-07 Use of Oleoresin Capsicum Peppe...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-08.pdf">221-08 Use of Conducted Electrical Wea...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-09.pdf">221-09 Use of Tear Gas</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-10.pdf">221-10 Use of Issuance of Shotguns Lon...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-11.pdf">221-11 Guidelines and Approval Process...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-12.pdf">221-12 Active Shooter Response Protoco...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-13.pdf">221-13 Mentally Ill or Emotionally Dis...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-14.pdf">221-14 Hostage Barricaded Person(s)</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-15.pdf">221-15 Vehicle Pursuits</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-16.pdf">221-16 Vehicle Checkpoints</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-17.pdf">221-17 Search Warrant Execution</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-18.pdf">221-18 Use of Department Canine Teams</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-19.pdf">221-19 Threats Against Members of the ...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-20.pdf">221-20 Confrontation Situations</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-21.pdf">221-21 School Safety Agent - Victim of...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-22.pdf">221-22 Traffic Enforcement Agent Victi...</a></li>
+<li class="section"><a href="https://portal.nypd.org/sites/354/Lists/NYPDManuals/221-23.pdf">221-23 Alcohol Testing for Uniformed M...</a></li>
+
+<!—END PASTE -->
+
+                    </ul>
+
+<!-- COMMENT OUT LIST OF SECTIONS 
+                    
+                    <div class="stickylisttitle">
+                     <p class="sectiontitle">List:</p>
+                    </div>
+
+                    <div class="stickysection">
+                        <p class="sectionlisttitle">200: General Information</p>
+                        <p class="sectionlist">200-02 Mission Vision and Values of th...</p>
+                        <p class="sectionlist">200-04 Index</p>
+                        <hr>
+                        <p class="sectionlisttitle">202: Duties and Responsibilities</p>
+                        <p class="sectionlist">202-01 Borough Commander</p>
+                        <p class="sectionlist">202-01a Borough Executive Officer, Oper...</p>
+                        <p class="sectionlist">202-01b Borough Executive Officer, Admi...</p>
+                        <p class="sectionlist">202-01c Duty Chief</p>
+                        <p class="sectionlist">202-01d Duty Inspector</p>
+                        <p class="sectionlist">202-02 Borough Adjutant</p>
+                        <p class="sectionlist">202-03 Borough Operations Commander</p>
+                        <p class="sectionlist">202-04 Borough Administrator</p>
+                        <p class="sectionlist">202-04a Borough Special Projects Coordi...</p>
+                        <p class="sectionlist">202-04b Borough Counterterrorism Coordi...</p>
+                        <p class="sectionlist">202-06 Patrol Borough Traffic Safety C...</p>
+                        <p class="sectionlist">202-07 Borough Auxiliary Police Coordi...</p>
+                        <p class="sectionlist">202-08 Duty Captain</p>
+                        <p class="sectionlist">202-08a Supervisor of Patrol (Captain)</p>
+                        <p class="sectionlist">202-09 Commanding Officer</p>
+                        <p class="sectionlist">202-10 Executive Officer</p>
+                        <p class="sectionlist">202-10a Commanding Officer Investigatio...</p>
+                        <p class="sectionlist">202-11 Operations Coordinator</p>
+                        <p class="sectionlist">202-12 Special Operations Lieutenant</p>
+                        <p class="sectionlist">202-13 Lieutenant - Platoon Commander</p>
+                        <p class="sectionlist">202-13a Criminal Justice Bureau - Borou...</p>
+                        <p class="sectionlist">202-14 Desk Officer</p>
+                        <p class="sectionlist">202-15 Command Integrity Control Offic...</p>
+                        <p class="sectionlist">202-16 Principal Administrative Associ...</p>
+                        <p class="sectionlist">202-17 Patrol Supervisor</p>
+                        <p class="sectionlist">202-18 Supervisor of Anti-Crime Patrol...</p>
+                        <p class="sectionlist">202-19 Training Sergeant</p>
+                        <p class="sectionlist">202-19a Traffic Safety Sergeant</p>
+                        <p class="sectionlist">202-19b Domestic Violence Sergeant</p>
+                        <p class="sectionlist">202-19c Neighborhood Coordination Serge...</p>
+                        <p class="sectionlist">202-19d Crime Analysis Sergeant</p>
+                        <p class="sectionlist">202-19e Field Intelligence Sergeant</p>
+                        <p class="sectionlist">202-21 Police Officer</p>
+                        <p class="sectionlist">202-22 Radio Motor Patrol Operator</p>
+                        <p class="sectionlist">202-23 Radio Motor Patrol Recorder</p>
+                        <p class="sectionlist">202-24 Motor Scooter Operator</p>
+                        <p class="sectionlist">202-25 Anti-Crime Police Officer</p>
+                        <p class="sectionlist">202-26 Crime Prevention Officer</p>
+                        <p class="sectionlist">202-28 Traffic Safety Officer</p>
+                        <p class="sectionlist">202-29 Domestic Violence Prevention Of...</p>
+                        <p class="sectionlist">202-30 Youth Coordination Officer</p>
+                        <p class="sectionlist">202-31 Arrest Processing Officer</p>
+                        <p class="sectionlist">202-32 Community Affairs Officer</p>
+                        <p class="sectionlist">202-32a Neighborhood Coordination Offic...</p>
+                        <p class="sectionlist">202-34 Command Auxiliary Police Coordi...</p>
+                        <p class="sectionlist">202-36 Evidence Property Control Speci...</p>
+                        <p class="sectionlist">202-37 Command Clerk</p>
+                        <p class="sectionlist">202-38 Telephone Switchboard Operator</p>
+                        <p class="sectionlist">202-39 Patrolwagon Operator</p>
+                        <p class="sectionlist">202-40 Police Attendant - Uniformed Ci...</p>
+                        <p class="sectionlist">202-41 Field Intelligence Officer</p>
+                        <p class="sectionlist">202-42 Personnel Administrative Manage...</p>
+                        <p class="sectionlist">202-43 Digital Communications Officer</p>
+                        <hr>
+                        <p class="sectionlisttitle">203: General Regulations</p>
+                        <p class="sectionlist">203-01 Order of Rank</p>
+                        <p class="sectionlist">203-02 Courtesies</p>
+                        <p class="sectionlist">203-03 Compliance with Orders</p>
+                        <p class="sectionlist">203-04 Fitness for Duty</p>
+                        <p class="sectionlist">203-05 Performance on Duty - General</p>
+                        <p class="sectionlist">203-06 Performance on Duty - Prohibite...</p>
+                        <p class="sectionlist">203-07 Performance on Duty - Personal ...</p>
+                        <p class="sectionlist">203-08 False or Misleading Statements</p>
+                        <p class="sectionlist">203-09 Public Contact - General</p>
+                        <p class="sectionlist">203-10 Public Contact - Prohibited Con...</p>
+                        <p class="sectionlist">203-13 Financial Restrictions - Prohib...</p>
+                        <p class="sectionlist">203-14 Financial Restrictions - Prohib...</p>
+                        <p class="sectionlist">203-15 Off Duty Conduct - Attendance a...</p>
+                        <p class="sectionlist">203-16 Guidelines for Acceptance of Gi...</p>
+                        <p class="sectionlist">203-17 Fund Raising Events</p>
+                        <p class="sectionlist">203-18 Residence Requirements</p>
+                        <p class="sectionlist">203-20 Authorized Leave</p>
+                        <p class="sectionlist">203-21 Integrity Monitoring File</p>
+                        <p class="sectionlist">203-22 Department Confidentiality Poli...</p>
+                        <p class="sectionlist">203-23 Conducting Ordered Breath Testi...</p>
+                        <p class="sectionlist">203-24 Personal Information via Depart...</p>
+                        <p class="sectionlist">203-25 Department Policy Prohibiting R...</p>
+                        <p class="sectionlist">203-26 Extended Leave of Absence - Edu...</p>
+                        <p class="sectionlist">203-27 Department Email Policy</p>
+                        <p class="sectionlist">203-28 Department Social Media Account...</p>
+                        <p class="sectionlist">203-29 When a Member of the Service En...</p>
+                        <p class="sectionlist">203-30 Facial Hair Policy</p>
+                        <p class="sectionlist">203-31 Religious Head Covering</p>
+                        <p class="sectionlist">203-32 Personal Social Media Accounts ...</p>
+                        <p class="sectionlist">203-33 Command Level Peer Support</p>
+                        <hr>
+                        <p class="sectionlisttitle">204: Uniforms and Equipment</p>
+                        <p class="sectionlist">204-01 General Uniform Regulations</p>
+                        <p class="sectionlist">204-02 Uniform Classifications</p>
+                        <p class="sectionlist">204-03 Uniforms</p>
+                        <p class="sectionlist">204-04 Optional Uniform Items</p>
+                        <p class="sectionlist">204-05 Purchase and Inspection of New ...</p>
+                        <p class="sectionlist">204-07 Lost or Damaged Uniform</p>
+                        <p class="sectionlist">204-08 Firearms General Regulations</p>
+                        <p class="sectionlist">204-09 Required Firearms Equipment</p>
+                        <p class="sectionlist">204-10 Handgun Acquisition Disposition</p>
+                        <p class="sectionlist">204-12 Repair Replacement of Authorize...</p>
+                        <p class="sectionlist">204-15 Shields Nameplates Identificati...</p>
+                        <p class="sectionlist">204-16 Emblems Insignia and Breast Bar...</p>
+                        <p class="sectionlist">204-17 Mourning Bands</p>
+                        <p class="sectionlist">204-18 Protective Vest</p>
+                        <p class="sectionlist">204-19 Protective Vest - Use/Maintenan...</p>
+                        <p class="sectionlist">204-20 Dual Purpose Disorder Control/S...</p>
+                        <hr>
+                        <p class="sectionlisttitle">205: Personnel Matters</p>
+                        <p class="sectionlist">205-01 Reporting Sick</p>
+                        <p class="sectionlist">205-02 Reporting Sick from Outside Cit...</p>
+                        <p class="sectionlist">205-03 Responsibility for Weapons Whil...</p>
+                        <p class="sectionlist">205-04 Department Ambulance Service</p>
+                        <p class="sectionlist">205-05 Line of Duty Injury or Death Oc...</p>
+                        <p class="sectionlist">205-06 Line of Duty Injury or Death - ...</p>
+                        <p class="sectionlist">205-07 Death of Member of the Service</p>
+                        <p class="sectionlist">205-08 Trauma Counseling Program</p>
+                        <p class="sectionlist">205-09 Supervision of Members of the S...</p>
+                        <p class="sectionlist">205-10 Exposure of Members of the Serv...</p>
+                        <p class="sectionlist">205-11 Request for Pre-Exposure Vaccin...</p>
+                        <p class="sectionlist">205-12 Donating or Requesting Blood fr...</p>
+                        <p class="sectionlist">205-13 Requesting Blood When Outside N...</p>
+                        <p class="sectionlist">205-14 Uniformed Members of the Servic...</p>
+                        <p class="sectionlist">205-16 Integrity Review Board Recommen...</p>
+                        <p class="sectionlist">205-17 Overtime</p>
+                        <p class="sectionlist">205-18 Absent Without Leave</p>
+                        <p class="sectionlist">205-19 Vacation Lost Due to Sick Leave</p>
+                        <p class="sectionlist">205-20 Leave of Absence Without Pay Tw...</p>
+                        <p class="sectionlist">205-21 Leave of Absence Without Pay Th...</p>
+                        <p class="sectionlist">205-22 Definite Military Leave</p>
+                        <p class="sectionlist">205-23 Indefinite Military Leave</p>
+                        <p class="sectionlist">205-24 Special Leave for Former Member...</p>
+                        <p class="sectionlist">205-26 Jury Duty Leave for Uniformed M...</p>
+                        <p class="sectionlist">205-27 Pregnancy Related Guidelines fo...</p>
+                        <p class="sectionlist">205-28 Child Care Leave of Absence</p>
+                        <p class="sectionlist">205-29 Random Drug Screening for Unifo...</p>
+                        <p class="sectionlist">205-30 Drug Screening Tests for Cause ...</p>
+                        <p class="sectionlist">205-31 Drug Screening Tests for Unifor...</p>
+                        <p class="sectionlist">205-32 Random Drug Screening for Unifo...</p>
+                        <p class="sectionlist">205-33 Drug Screening Tests for Unifor...</p>
+                        <p class="sectionlist">205-34 Drug Screening for Uniformed Me...</p>
+                        <p class="sectionlist">205-35 Voluntary Drug Testing</p>
+                        <p class="sectionlist">205-36 Employment Discrimination</p>
+                        <p class="sectionlist">205-37 Sexual Ethnic Racial Religious ...</p>
+                        <p class="sectionlist">205-38 Investigations of Incidents of ...</p>
+                        <p class="sectionlist">205-39 Departmental Recognition - Unif...</p>
+                        <p class="sectionlist">205-40 Uniformed Member - Off Duty Emp...</p>
+                        <p class="sectionlist">205-41 Finest Ideas Program</p>
+                        <p class="sectionlist">205-42 Discontinuance of Police Servic...</p>
+                        <p class="sectionlist">205-43 Discontinuation of Police Servi...</p>
+                        <p class="sectionlist">205-44 Pistol License for Retiring Mem...</p>
+                        <p class="sectionlist">205-45 Chronic Absence Control Program</p>
+                        <p class="sectionlist">205-46 Counseling Services Unit</p>
+                        <p class="sectionlist">205-47 Temporary Removal of Firearms i...</p>
+                        <p class="sectionlist">205-48 Evaluations - General - Members...</p>
+                        <p class="sectionlist">205-49 Evaluation of Probationary Poli...</p>
+                        <p class="sectionlist">205-50 Evaluation of Police Officers a...</p>
+                        <p class="sectionlist">205-51 Evaluations of Police Officers ...</p>
+                        <p class="sectionlist">205-52 Evaluation of Sergeants / Lieut...</p>
+                        <p class="sectionlist">205-53 Evaluation of Sub-Managerial Ci...</p>
+                        <p class="sectionlist">205-54 Evaluation of Captain Through D...</p>
+                        <p class="sectionlist">205-55 Evaluation of Assistant Chiefs ...</p>
+                        <p class="sectionlist">205-57 Police Officer Detective Specia...</p>
+                        <p class="sectionlist">205-58 Appeal of Evaluation - Uniforme...</p>
+                        <p class="sectionlist">205-59 Appeal of Evaluation - Civilian...</p>
+                        <p class="sectionlist">205-60 Reporting to Department Surgeon...</p>
+                        <p class="sectionlist">205-61 Notifying Court, Trial Room or ...</p>
+                        <p class="sectionlist">205-62 Firearms Proficiency Requiremen...</p>
+                        <p class="sectionlist">205-63 Monitoring Off-Duty Visits to I...</p>
+                        <p class="sectionlist">205-64 Law Enforcement Officers Safety...</p>
+                        <p class="sectionlist">205-65 Department Medals – Uniformed M...</p>
+                        <p class="sectionlist">205-66 Counseling Services Unit Drug S...</p>
+                        <p class="sectionlist">205-67 End of Probation Drug Screening...</p>
+                        <p class="sectionlist">205-68 Member of the Service Seeking t...</p>
+                        <p class="sectionlist">205-69 Vacation Policy</p>
+                        <hr>
+                        <p class="sectionlisttitle">206: Disciplinary Matters</p>
+                        <p class="sectionlist">206-01 Reporting Violations Observed b...</p>
+                        <p class="sectionlist">206-02 Schedule 'A' and Schedule 'B' C...</p>
+                        <p class="sectionlist">206-03 Violations Subject to Command D...</p>
+                        <p class="sectionlist">206-04 Authorized Penalties Under Comm...</p>
+                        <p class="sectionlist">206-05 Preparation of Charges and Spec...</p>
+                        <p class="sectionlist">206-06 Service and Disposition of Char...</p>
+                        <p class="sectionlist">206-07 Cause for Suspension or Modifie...</p>
+                        <p class="sectionlist">206-08 Suspension From Duty Uniformed ...</p>
+                        <p class="sectionlist">206-09 Suspension from Duty - Civilian...</p>
+                        <p class="sectionlist">206-10 Modified Assignment</p>
+                        <p class="sectionlist">206-11 Member of the Service Arrested ...</p>
+                        <p class="sectionlist">206-12 Removal of Firearms from Intoxi...</p>
+                        <p class="sectionlist">206-13 Interrogation of Members of the...</p>
+                        <p class="sectionlist">206-14 Sealing Disciplinary Records</p>
+                        <p class="sectionlist">206-15 Sealing Disciplinary Charges</p>
+                        <p class="sectionlist">206-17 Removal and Restoration of Fire...</p>
+                        <p class="sectionlist">206-18 Citywide Command Discipline Sys...</p>
+                        <p class="sectionlist">206-19 Orders of Protection Served on ...</p>
+                        <p class="sectionlist">206-20 Orders of Protection Prohibitin...</p>
+                        <hr>
+                        <p class="sectionlisttitle">207: Complaints</p>
+                        <p class="sectionlist">207-01 Complaint Reporting System</p>
+                        <p class="sectionlist">207-02 Complaints Not Recorded on Comp...</p>
+                        <p class="sectionlist">207-03 Voiding Complaint Reports</p>
+                        <p class="sectionlist">207-04 Reporting of Complaints Occurri...</p>
+                        <p class="sectionlist">207-05 Duplicate Copies of Complaint R...</p>
+                        <p class="sectionlist">207-06 Notifications</p>
+                        <p class="sectionlist">207-07 Preliminary Investigation of Co...</p>
+                        <p class="sectionlist">207-08 Preliminary Investigation of Vi...</p>
+                        <p class="sectionlist">207-09 Follow-up Investigations of Com...</p>
+                        <p class="sectionlist">207-10 Bias Motivated Incidents</p>
+                        <p class="sectionlist">207-11 Preliminary Investigation Recor...</p>
+                        <p class="sectionlist">207-12 Lost or Stolen Property Identit...</p>
+                        <p class="sectionlist">207-13 Lost/Stolen Vehicle Plates, Lic...</p>
+                        <p class="sectionlist">207-14 Robbery Complaints Involving Po...</p>
+                        <p class="sectionlist">207-15 Threats to Complainants and Wit...</p>
+                        <p class="sectionlist">207-16 Overdue Rental Vehicles</p>
+                        <p class="sectionlist">207-17 Contraband Weapons</p>
+                        <p class="sectionlist">207-18 Complaints Involving Credit Car...</p>
+                        <p class="sectionlist">207-19 Thefts from Department Lockers</p>
+                        <p class="sectionlist">207-20 Investigation of Crimes Involvi...</p>
+                        <p class="sectionlist">207-21 Allegations of Corruption and O...</p>
+                        <p class="sectionlist">207-22 Allegations of Corruption Again...</p>
+                        <p class="sectionlist">207-23 Missing Persons</p>
+                        <p class="sectionlist">207-25 Notifications from Caseworkers ...</p>
+                        <p class="sectionlist">207-26 Voluntary Surrender of Weapons ...</p>
+                        <p class="sectionlist">207-27 Voluntary Surrender of Weapons ...</p>
+                        <p class="sectionlist">207-28 Recording of Complaints Occurri...</p>
+                        <p class="sectionlist">207-29 Field Reports</p>
+                        <p class="sectionlist">207-30 Civilian Complaints - Witness S...</p>
+                        <p class="sectionlist">207-31 Processing Civilian Complaints</p>
+                        <p class="sectionlist">207-32 Investigation of Carjackings</p>
+                        <p class="sectionlist">207-33 Recording Enforcement Incidents</p>
+                        <p class="sectionlist">207-34 Complaints Involving Identity T...</p>
+                        <p class="sectionlist">207-35 Silver Alert System</p>
+                        <p class="sectionlist">207-36 Complaints Involving Cellular T...</p>
+                        <p class="sectionlist">207-37 Operational Guidelines for Proc...</p>
+                        <p class="sectionlist">207-38 Complaints Involving Sex Crimes</p>
+                        <hr>
+                        <p class="sectionlisttitle">208: Arrests</p>
+                        <p class="sectionlist">208-01 Law of Arrest</p>
+                        <p class="sectionlist">208-02 Arrests - Removal to Department...</p>
+                        <p class="sectionlist">208-03 Arrests - General Processing</p>
+                        <p class="sectionlist">208-04 Arrest by a Civilian</p>
+                        <p class="sectionlist">208-05 Arrest - General Search Guideli...</p>
+                        <p class="sectionlist">208-06 Arrests - Security Measures</p>
+                        <p class="sectionlist">208-07 Photographable Offenses</p>
+                        <p class="sectionlist">208-08 Fingerprintable and Palmprintab...</p>
+                        <p class="sectionlist">208-09 Rights of Persons Taken Into Cu...</p>
+                        <p class="sectionlist">208-10 Alternate Procedure for Arrest ...</p>
+                        <p class="sectionlist">208-11 Arrest Processing - "Livescan" ...</p>
+                        <p class="sectionlist">208-12 Alternate Procedure for Fingerp...</p>
+                        <p class="sectionlist">208-13 Arrest Report Supplement</p>
+                        <p class="sectionlist">208-14 Arrest by Uniformed Member Outs...</p>
+                        <p class="sectionlist">208-15 Arrest Report Preparation at St...</p>
+                        <p class="sectionlist">208-16 Arrest Processing Indicators</p>
+                        <p class="sectionlist">208-17 Change in Arrest Charges</p>
+                        <p class="sectionlist">208-20 "Turnover" Arrests</p>
+                        <p class="sectionlist">208-22 Performing Local State and Fede...</p>
+                        <p class="sectionlist">208-23 Computerized Investigation Card...</p>
+                        <p class="sectionlist">208-24 Identification Lineups Showups</p>
+                        <p class="sectionlist">208-25 First and Third Platoon Arrests</p>
+                        <p class="sectionlist">208-26 Forfeiture Proceedings for Seiz...</p>
+                        <p class="sectionlist">208-27 Desk Appearance Ticket - Genera...</p>
+                        <p class="sectionlist">208-28 Desk Appearance Ticket - Identi...</p>
+                        <p class="sectionlist">208-30 Desk Appearance Ticket - Hospit...</p>
+                        <p class="sectionlist">208-34 Bribery Arrest by Uniformed Mem...</p>
+                        <p class="sectionlist">208-35 Attempted Bribery of uniformed ...</p>
+                        <p class="sectionlist">208-36 Family Offenses Domestic Violen...</p>
+                        <p class="sectionlist">208-37 Family Offenses and Domestic Vi...</p>
+                        <p class="sectionlist">208-38 New York State Order of Protect...</p>
+                        <p class="sectionlist">208-39 Family Offenses Domestic Violen...</p>
+                        <p class="sectionlist">208-40 Intoxicated or Impaired Driver ...</p>
+                        <p class="sectionlist">208-41 Persons Under Twenty-One Operat...</p>
+                        <p class="sectionlist">208-42 Arrest on a Warrant</p>
+                        <p class="sectionlist">208-44 Prostitution</p>
+                        <p class="sectionlist">208-45 Loitering for Purposes of Prost...</p>
+                        <p class="sectionlist">208-46 Gambling</p>
+                        <p class="sectionlist">208-47 Counterfeiting/Forging US Gover...</p>
+                        <p class="sectionlist">208-48 Violation of Postal Laws</p>
+                        <p class="sectionlist">208-49 Contraband Weapons</p>
+                        <p class="sectionlist">208-50 Certificate of Warrant (Non-Sup...</p>
+                        <p class="sectionlist">208-52 Traffic Violations</p>
+                        <p class="sectionlist">208-53 Arrest Processing - Aggravated ...</p>
+                        <p class="sectionlist">208-54 Arrest Screening Guidelines for...</p>
+                        <p class="sectionlist">208-55 Vehicle of Foreign Registry</p>
+                        <p class="sectionlist">208-56 Foreign Nationals</p>
+                        <p class="sectionlist">208-57 Holders of Licenses Issued by N...</p>
+                        <p class="sectionlist">208-58 Taxicab and Towing Truck Owners...</p>
+                        <p class="sectionlist">208-59 Felony Arrests of Parolees</p>
+                        <p class="sectionlist">208-60 Delivery of Felony Warrant Defe...</p>
+                        <p class="sectionlist">208-61 Material Witness</p>
+                        <p class="sectionlist">208-62 Transient Prisoner</p>
+                        <p class="sectionlist">208-65 Felony Augmentation Program</p>
+                        <p class="sectionlist">208-66 Felony Case Development</p>
+                        <p class="sectionlist">208-67 Follow-Up Investigations on "De...</p>
+                        <p class="sectionlist">208-68 OLBS Computerized Arrest Notifi...</p>
+                        <p class="sectionlist">208-69 Notifications in Certain Arrest...</p>
+                        <p class="sectionlist">208-70 Processing of New York State Do...</p>
+                        <p class="sectionlist">208-71 Documentation of Activity of Ba...</p>
+                        <p class="sectionlist">208-72 Obtaining Prisoner DNA Sample</p>
+                        <p class="sectionlist">208-73 Notification to the Detective B...</p>
+                        <p class="sectionlist">208-74 Arrest Processing of Persons Wa...</p>
+                        <p class="sectionlist">208-75 Enhancement of Offenses Involvi...</p>
+                        <p class="sectionlist">208-76 New York City Housing Authority...</p>
+                        <p class="sectionlist">208-77 Processing Arrests Made Pursuan...</p>
+                        <p class="sectionlist">208-78 Returning an Individual to Cour...</p>
+                        <p class="sectionlist">208-79 Diversion of Individuals Arrest...</p>
+                        <p class="sectionlist">208-80 Vacating Summons Adjudication P...</p>
+                        <p class="sectionlist">208-81 Desk Appearance Ticket - Disqua...</p>
+                        <p class="sectionlist">208-82 Desk Appearance Ticket - Confer...</p>
+                        <hr>
+                        <p class="sectionlisttitle">209: Summonses</p>
+                        <p class="sectionlist">209-01 Conditions of Service</p>
+                        <p class="sectionlist">209-02 Summonses and Notices of Violat...</p>
+                        <p class="sectionlist">209-03 Civil Summons Returnable to the...</p>
+                        <p class="sectionlist">209-04 Summons Return Date and Time</p>
+                        <p class="sectionlist">209-06 Quality Control Procedures for ...</p>
+                        <p class="sectionlist">209-07 Parking Summonses - General Pro...</p>
+                        <p class="sectionlist">209-08 Parking Violations Summons - Gr...</p>
+                        <p class="sectionlist">209-09 Personal Service of Summonses R...</p>
+                        <p class="sectionlist">209-10 Traffic Violations Bureau Summo...</p>
+                        <p class="sectionlist">209-11 Criminal Court Summons - Graphi...</p>
+                        <p class="sectionlist">209-12 Personal Service of Civil Summo...</p>
+                        <p class="sectionlist">209-14 Civil Summons Returnable to the...</p>
+                        <p class="sectionlist">209-15 Transit Adjudication Bureau - N...</p>
+                        <p class="sectionlist">209-16 Service of a Summons - Special ...</p>
+                        <p class="sectionlist">209-17 Report Instead of Summons</p>
+                        <p class="sectionlist">209-18 Summons Served or Prepared in E...</p>
+                        <p class="sectionlist">209-19 Transit Adjudication Bureau - N...</p>
+                        <p class="sectionlist">209-20 Summons Served Outside Permanen...</p>
+                        <p class="sectionlist">209-21 Summons Served Outside Permanen...</p>
+                        <p class="sectionlist">209-22 Summons Notification</p>
+                        <p class="sectionlist">209-23 Taxi and Limousine Commission N...</p>
+                        <p class="sectionlist">209-24 Mandatory Driver's License Chec...</p>
+                        <p class="sectionlist">209-25 Processing Warrant Checks Over ...</p>
+                        <p class="sectionlist">209-26 Suspended or Revoked Vehicle Op...</p>
+                        <p class="sectionlist">209-27 Service of a Summons - Removal ...</p>
+                        <p class="sectionlist">209-28 Unlicensed Tow Truck Operators</p>
+                        <p class="sectionlist">209-29 Seizure of Unlicensed Tow Truck</p>
+                        <p class="sectionlist">209-30 Summons Served on Vehicle Used ...</p>
+                        <p class="sectionlist">209-31 Statement of Correction by a Po...</p>
+                        <p class="sectionlist">209-32 Release of Vehicles Prior to To...</p>
+                        <p class="sectionlist">209-33 Parental Notification for Crimi...</p>
+                        <p class="sectionlist">209-34 To Truck Enforcement Common Sum...</p>
+                        <p class="sectionlist">209-35 Pleading Guilty by Mail for Cri...</p>
+                        <p class="sectionlist">209-36 Electronic Summons Tracking Sys...</p>
+                        <p class="sectionlist">209-37 Enforcement and or Invoicing of...</p>
+                        <p class="sectionlist">209-38 Unlawful Possession of Marijuan...</p>
+                        <p class="sectionlist">209-39 Personal Service of Transit Adj...</p>
+                        <hr>
+                        <p class="sectionlisttitle">210: Prisoners</p>
+                        <p class="sectionlist">210-01 Prisoners General Procedure</p>
+                        <p class="sectionlist">210-02 Hospitalized Prisoners</p>
+                        <p class="sectionlist">210-03 Hospitalized Prisoners - Arrest...</p>
+                        <p class="sectionlist">210-04 Prisoners Requiring Medical Psy...</p>
+                        <p class="sectionlist">210-05 Bedside Arraignment</p>
+                        <p class="sectionlist">210-06 Prisoners' Meals</p>
+                        <p class="sectionlist">210-07 Prisoners - Unusual Occurrence</p>
+                        <p class="sectionlist">210-08 Guidelines for Prisoner Holding...</p>
+                        <p class="sectionlist">210-13 Release of Prisoners</p>
+                        <p class="sectionlist">210-14 Release of Prisoner - Narcotic ...</p>
+                        <p class="sectionlist">210-15 Release of Prisoners Arrested b...</p>
+                        <p class="sectionlist">210-16 Release of Prisoner at the Comp...</p>
+                        <p class="sectionlist">210-17 Arrest Processing of Pre-Arraig...</p>
+                        <p class="sectionlist">210-18 Debriefing of Prisoners</p>
+                        <hr>
+                        <p class="sectionlisttitle">211: Court and Agency Appearances</p>
+                        <p class="sectionlist">211-01 Duties and Conduct in Court</p>
+                        <p class="sectionlist">211-04 Computerized Court Appearance C...</p>
+                        <p class="sectionlist">211-05 Processing Notifications to App...</p>
+                        <p class="sectionlist">211-06 Criminal/Civil Court Telephone ...</p>
+                        <p class="sectionlist">211-07 Prevention of Court Appearance ...</p>
+                        <p class="sectionlist">211-08 Documenting and Reporting Court...</p>
+                        <p class="sectionlist">211-09 Appearances by Members of the S...</p>
+                        <p class="sectionlist">211-10 Traffic Violations Bureau Notif...</p>
+                        <p class="sectionlist">211-11 Traffic Violations Bureau Appea...</p>
+                        <p class="sectionlist">211-12 Hearings at Department of Motor...</p>
+                        <p class="sectionlist">211-13 Official Appearances at Departm...</p>
+                        <p class="sectionlist">211-14 Investigations by Civilian Comp...</p>
+                        <p class="sectionlist">211-15 Processing Subpoenas for Police...</p>
+                        <p class="sectionlist">211-16 Subpoenas Issued by Courts Outs...</p>
+                        <p class="sectionlist">211-17 Processing Legal Bureau Request...</p>
+                        <p class="sectionlist">211-18 Processing Request for Police D...</p>
+                        <p class="sectionlist">211-19 New York City Transit Law Torts...</p>
+                        <p class="sectionlist">211-20 Conferral with Department Attor...</p>
+                        <p class="sectionlist">211-21 Obtaining Assistance of Corpora...</p>
+                        <hr>
+                        <p class="sectionlisttitle">212: Command Operations</p>
+                        <p class="sectionlist">212-01 Roll Call Formations</p>
+                        <p class="sectionlist">212-02 Meal Period</p>
+                        <p class="sectionlist">212-03 Expiration of Tour</p>
+                        <p class="sectionlist">212-04 Crime Scene</p>
+                        <p class="sectionlist">212-05 Crime Scene Investigations Affe...</p>
+                        <p class="sectionlist">212-06 Radio Motor Patrol Transport Re...</p>
+                        <p class="sectionlist">212-07 Transporting Non-Member of the ...</p>
+                        <p class="sectionlist">212-08 Activity Logs</p>
+                        <p class="sectionlist">212-09 Unusual Occurrence Reports</p>
+                        <p class="sectionlist">212-10 Interrupted Patrol Log</p>
+                        <p class="sectionlist">212-11 Investigative Encounters: Reque...</p>
+                        <p class="sectionlist">212-12 Citywide Intelligence Reporting...</p>
+                        <p class="sectionlist">212-13 Reporting Gang-Related Criminal...</p>
+                        <p class="sectionlist">212-14 Traffic Intelligence Report</p>
+                        <p class="sectionlist">212-15 Lojack Stolen Vehicle Recovery ...</p>
+                        <p class="sectionlist">212-16 Evacuations of New York City Tr...</p>
+                        <p class="sectionlist">212-17 Procedures at Scenes of Critica...</p>
+                        <p class="sectionlist">212-18 Searches For Armed Dangerous Pe...</p>
+                        <p class="sectionlist">212-19 Animals on New York City Public...</p>
+                        <p class="sectionlist">212-20 Ejection from New York City Tra...</p>
+                        <p class="sectionlist">212-21 Photography on the New York Cit...</p>
+                        <p class="sectionlist">212-22 Malfunction of Transit Bureau R...</p>
+                        <p class="sectionlist">212-23 Inspection of Rapid Transit Sta...</p>
+                        <p class="sectionlist">212-24 Removal of Power in Subway</p>
+                        <p class="sectionlist">212-26 Inspection of New York City Hou...</p>
+                        <p class="sectionlist">212-28 Disabled Housing Authority Elev...</p>
+                        <p class="sectionlist">212-32 Off Duty Incidents Involving Un...</p>
+                        <p class="sectionlist">212-34 Probationary Police Officer, Po...</p>
+                        <p class="sectionlist">212-35 Incidents Involving Enforcement...</p>
+                        <p class="sectionlist">212-36 Incidents Involving Former / Re...</p>
+                        <p class="sectionlist">212-37 Hazardous Materials</p>
+                        <p class="sectionlist">212-40 Bomb Threats Unattended Article...</p>
+                        <p class="sectionlist">212-41 Alarms - Department of Educatio...</p>
+                        <p class="sectionlist">212-43 Vacate Orders for Residential B...</p>
+                        <p class="sectionlist">212-44 Response to Firearms Dealers Lo...</p>
+                        <p class="sectionlist">212-45 Foreign National Requesting Asy...</p>
+                        <p class="sectionlist">212-46 Unlawful Possession of Rifles/S...</p>
+                        <p class="sectionlist">212-47 Counterfeit Money</p>
+                        <p class="sectionlist">212-48 Motor Vehicles Repossessed/Park...</p>
+                        <p class="sectionlist">212-49 Incidents Involving Media Repre...</p>
+                        <p class="sectionlist">212-50 Aircraft Violations</p>
+                        <p class="sectionlist">212-51 Response to Work Disruptions at...</p>
+                        <p class="sectionlist">212-52 Labor Dispute</p>
+                        <p class="sectionlist">212-54 Person Threatening to Jump from...</p>
+                        <p class="sectionlist">212-55 Investigation of Aided Cases In...</p>
+                        <p class="sectionlist">212-56 Diplomatic Incidents</p>
+                        <p class="sectionlist">212-57 Service of Family Court Supreme...</p>
+                        <p class="sectionlist">212-58 Fire</p>
+                        <p class="sectionlist">212-60 Interior Patrol of Housing Auth...</p>
+                        <p class="sectionlist">212-61 Burglary Robbery Apprehension M...</p>
+                        <p class="sectionlist">212-65 Bicycle Patrol</p>
+                        <p class="sectionlist">212-66 City Policy Concerning Identify...</p>
+                        <p class="sectionlist">212-67 Police/Clergy Program</p>
+                        <p class="sectionlist">212-68 Confidential Informants</p>
+                        <p class="sectionlist">212-69 Involuntary Protection Service</p>
+                        <p class="sectionlist">212-70 Civilian Commendations (Non-Mem...</p>
+                        <p class="sectionlist">212-71 Guidelines for the Use of Video...</p>
+                        <p class="sectionlist">212-72 Guidelines for Uniformed Member...</p>
+                        <p class="sectionlist">212-73 Bicycle Registration Program</p>
+                        <p class="sectionlist">212-74 Community Notification Protocol</p>
+                        <p class="sectionlist">212-75 Search Warrant Applications</p>
+                        <p class="sectionlist">212-76 Information Concerning Official...</p>
+                        <p class="sectionlist">212-77 Release of Information to News ...</p>
+                        <p class="sectionlist">212-78 Utilization of the Real Time Cr...</p>
+                        <p class="sectionlist">212-79 Subpoena Fees and Accounting Pr...</p>
+                        <p class="sectionlist">212-80 Suspension and Revocation Order...</p>
+                        <p class="sectionlist">212-81 Unauthorized Display of Badges,...</p>
+                        <p class="sectionlist">212-82 Forwarding of Fees to Audits an...</p>
+                        <p class="sectionlist">212-83 Leaving City on Official Busine...</p>
+                        <p class="sectionlist">212-84 Verification of Pistol License</p>
+                        <p class="sectionlist">212-85 Rifle/Shotgun Permit Suspended,...</p>
+                        <p class="sectionlist">212-86 Primary General and Special Ele...</p>
+                        <p class="sectionlist">212-87 Primary General and Special Ele...</p>
+                        <p class="sectionlist">212-88 Primary General and Special Ele...</p>
+                        <p class="sectionlist">212-90 Guidelines for Interaction with...</p>
+                        <p class="sectionlist">212-91 Department Requests for New Yor...</p>
+                        <p class="sectionlist">212-99 Amber Alert System</p>
+                        <p class="sectionlist">212-100 Auxiliary Police Supervision an...</p>
+                        <p class="sectionlist">212-101 Processing Unknown Substances S...</p>
+                        <p class="sectionlist">212-102 Personal Radiation Detection Pa...</p>
+                        <p class="sectionlist">212-103 Crime Information Centers</p>
+                        <p class="sectionlist">212-104 Interaction with Hearing Impair...</p>
+                        <p class="sectionlist">212-106 Search Warrant Post-Execution C...</p>
+                        <p class="sectionlist">212-107 Secure Automated Fast Event Tra...</p>
+                        <p class="sectionlist">212-108 Notifications to the Intelligen...</p>
+                        <p class="sectionlist">212-110 Communications Between the Inte...</p>
+                        <p class="sectionlist">212-111 Requests for U Visa Certificati...</p>
+                        <p class="sectionlist">212-112 Operation Safe Store</p>
+                        <p class="sectionlist">212-114 Authorization Notification Rega...</p>
+                        <p class="sectionlist">212-116 Street Narcotics Enforcement Un...</p>
+                        <p class="sectionlist">212-118 Incidents Involving Holders of ...</p>
+                        <p class="sectionlist">212-119 Investigations of Animal Abuse</p>
+                        <p class="sectionlist">212-121 Unauthorized Radio Transmission</p>
+                        <p class="sectionlist">212-122 Request to Archive and or Obtai...</p>
+                        <p class="sectionlist">212-123 Use of Body-Worn Cameras</p>
+                        <p class="sectionlist">212-124 Use of Department Unmanned Airc...</p>
+                        <p class="sectionlist">212-125 Crime Victim Assistance Program...</p>
+                        <p class="sectionlist">212-126 Requests to Provide City Resour...</p>
+                        <p class="sectionlist">212-127 Gunshot Detection Alerts</p>
+                        <p class="sectionlist">212-128 Extreme Risk Protection Order</p>
+                        <p class="sectionlist">212-129 Facial Recognition Technology</p>
+                        <p class="sectionlist">212-130 Accessing New York City Departm...</p>
+                        <hr>
+                        <p class="sectionlisttitle">213: Mobilizations/Emergency Incidents</p>
+                        <p class="sectionlist">213-02 Emergency Incidents</p>
+                        <p class="sectionlist">213-03 Rapid Mobilization</p>
+                        <p class="sectionlist">213-04 Mobilization Readiness Levels</p>
+                        <p class="sectionlist">213-05 Duties at an Unusual Disorder</p>
+                        <p class="sectionlist">213-06 Large Scale Arrest Processing P...</p>
+                        <p class="sectionlist">213-07 Unusual Disorder Maps</p>
+                        <p class="sectionlist">213-08 Unusual Disorder Plan - Formula...</p>
+                        <p class="sectionlist">213-09 Unusual Disorder Kits</p>
+                        <p class="sectionlist">213-10 Emergency Mobilization of Off D...</p>
+                        <p class="sectionlist">213-11 Policing Special Events Crowd C...</p>
+                        <p class="sectionlist">213-12 Apprehension Plan</p>
+                        <p class="sectionlist">213-13 Emergency Plans "A" - "B" - "C"</p>
+                        <p class="sectionlist">213-15 Duties and Responsibilities at ...</p>
+                        <p class="sectionlist">213-16 Relocation of Vehicles During S...</p>
+                        <p class="sectionlist">213-17 Notifications Regarding Traffic...</p>
+                        <p class="sectionlist">213-18 Citywide Security Alert Levels</p>
+                        <p class="sectionlist">213-19 Interoperability Channels</p>
+                        <hr>
+                        <p class="sectionlisttitle">214: Quality of Life Matters</p>
+                        <p class="sectionlist">214-02 Narcotics Eviction Program</p>
+                        <p class="sectionlist">214-03 Graffiti Reward Program</p>
+                        <p class="sectionlist">214-05 Selection and Utilization of Au...</p>
+                        <p class="sectionlist">214-06 Homeless Contact Guidelines for...</p>
+                        <p class="sectionlist">214-07 Cases for Legal Action Program</p>
+                        <p class="sectionlist">214-08 Chronic Abuser Alarm Procedures</p>
+                        <p class="sectionlist">214-09 Taxi and Limousine Commission P...</p>
+                        <p class="sectionlist">214-10 Unlawful Posting of Signs</p>
+                        <p class="sectionlist">214-11 Enforcement Activities Regardin...</p>
+                        <p class="sectionlist">214-12 Unlawful Evictions</p>
+                        <p class="sectionlist">214-13 Evictions Repossessions and Oth...</p>
+                        <p class="sectionlist">214-14 Driveway Tow Program</p>
+                        <p class="sectionlist">214-15 Anonymous Controlled Substance ...</p>
+                        <p class="sectionlist">214-16 Construction Sites</p>
+                        <p class="sectionlist">214-17 Vacant Buildings</p>
+                        <p class="sectionlist">214-18 Stop Work Orders</p>
+                        <p class="sectionlist">214-19 Using Chains and Padlocks to Se...</p>
+                        <p class="sectionlist">214-20 Repair of Entrances Damaged Dur...</p>
+                        <p class="sectionlist">214-21 Project Safe - Escorts for Safe...</p>
+                        <p class="sectionlist">214-22 Weekly Street Conditions Survey...</p>
+                        <p class="sectionlist">214-23 Unreasonable Noise Violations</p>
+                        <p class="sectionlist">214-24 Service of Civil Summons Return...</p>
+                        <p class="sectionlist">214-25 Deactivation of Motor Vehicle A...</p>
+                        <p class="sectionlist">214-26 Snow Emergency Regulations</p>
+                        <p class="sectionlist">214-27 Snow Removal</p>
+                        <p class="sectionlist">214-29 Derelict Vehicles Bearing Regis...</p>
+                        <p class="sectionlist">214-30 Removal of Expired Registration...</p>
+                        <p class="sectionlist">214-31 Removal of Vehicles from Parkwa...</p>
+                        <p class="sectionlist">214-32 Discarded Refrigerators Freezer...</p>
+                        <p class="sectionlist">214-33 Care and Disposition of Animals</p>
+                        <p class="sectionlist">214-34 Police Action in Premises (Lice...</p>
+                        <p class="sectionlist">214-35 Processing Quality of Life Serv...</p>
+                        <p class="sectionlist">214-36 Response to Complaints of Viola...</p>
+                        <p class="sectionlist">214-37 New York City Department of Bui...</p>
+                        <p class="sectionlist">214-38 Inspections of Pawnbrokers and ...</p>
+                        <p class="sectionlist">214-39 Criteria for Selecting a Locati...</p>
+                        <p class="sectionlist">214-40 Mediation Referral Program for ...</p>
+                        <hr>
+                        <p class="sectionlisttitle">215: Juvenile Matters</p>
+                        <p class="sectionlist">215-01 Children or Minors Requiring Ca...</p>
+                        <p class="sectionlist">215-02 Lost Child</p>
+                        <p class="sectionlist">215-03 Emergency Removals or Investiga...</p>
+                        <p class="sectionlist">215-04 Family Court Warrant for Child ...</p>
+                        <p class="sectionlist">215-05 Runaway Children</p>
+                        <p class="sectionlist">215-07 Truants</p>
+                        <p class="sectionlist">215-08 On-Line Juvenile Report System</p>
+                        <p class="sectionlist">215-09 Offense Committed by a Juvenile...</p>
+                        <p class="sectionlist">215-10 Arrest of Juvenile Offender or ...</p>
+                        <p class="sectionlist">215-11 Arrest of Juvenile Unlawfully i...</p>
+                        <p class="sectionlist">215-12 Personal Recognizance Juvenile ...</p>
+                        <p class="sectionlist">215-13 Handcuffing Restraining Student...</p>
+                        <p class="sectionlist">215-14 Child Advocacy Referrals in the...</p>
+                        <p class="sectionlist">215-15 Confiscation of New York City T...</p>
+                        <p class="sectionlist">215-16 Reporting and Recording Public ...</p>
+                        <p class="sectionlist">215-17 Police Actions Related Question...</p>
+                        <p class="sectionlist">215-18 Search Protocols for School Saf...</p>
+                        <p class="sectionlist">215-19 Abandoned Infants Operation Saf...</p>
+                        <p class="sectionlist">215-20 Requests for Information from t...</p>
+                        <p class="sectionlist">215-21 Utilization of the Juvenile Des...</p>
+                        <p class="sectionlist">215-22 Requests for Assistance from Ad...</p>
+                        <p class="sectionlist">215-23 Court Processing of Arrests of ...</p>
+                        <p class="sectionlist">215-24 Photographing Juveniles Charged...</p>
+                        <p class="sectionlist">215-25 Child Custody Exchanges Occurri...</p>
+                        <p class="sectionlist">215-26 Issuance of WARNING CARD (PD277...</p>
+                        <p class="sectionlist">215-27 School-Related Threats at a NYC...</p>
+                        <p class="sectionlist">215-28 Use of Child Car Seats</p>
+                        <hr>
+                        <p class="sectionlisttitle">216: Aided Cases</p>
+                        <p class="sectionlist">216-01 Aided Cases General Procedure</p>
+                        <p class="sectionlist">216-02 Preparation of Aided Report</p>
+                        <p class="sectionlist">216-03 Unidentified Persons</p>
+                        <p class="sectionlist">216-04 Dead Human Body General Procedu...</p>
+                        <p class="sectionlist">216-06 Mental Health Removal Orders</p>
+                        <p class="sectionlist">216-07 Firearm Safety Stations at Psyc...</p>
+                        <p class="sectionlist">216-08 Persons Overcome by Gas Drugs o...</p>
+                        <p class="sectionlist">216-09 Animal Bites</p>
+                        <p class="sectionlist">216-10 Taxicab Drivers</p>
+                        <p class="sectionlist">216-11 Communicable Disease</p>
+                        <p class="sectionlist">216-12 School Crossing Guard Injured W...</p>
+                        <p class="sectionlist">216-13 Line of Duty Injury or Death - ...</p>
+                        <p class="sectionlist">216-14 Aided Cases on New York City Tr...</p>
+                        <p class="sectionlist">216-15 Notifications</p>
+                        <p class="sectionlist">216-16 Suspicious Death or Suicide in ...</p>
+                        <p class="sectionlist">216-17 Involuntary Removals Pursuant t...</p>
+                        <p class="sectionlist">216-18 Child Window Fall Report</p>
+                        <p class="sectionlist">216-19 Public Access Defibrillation Pr...</p>
+                        <p class="sectionlist">216-20 Handling Shelter Clients with T...</p>
+                        <p class="sectionlist">216-21 Response to Carbon Monoxide Ala...</p>
+                        <p class="sectionlist">216-22 Mobile Crisis Outreach Teams an...</p>
+                        <p class="sectionlist">216-23 Response to Suspected Overdose ...</p>
+                        <hr>
+                        <p class="sectionlisttitle">217: Vehicle Collisions</p>
+                        <p class="sectionlist">217-01 Vehicle Collisions - General Pr...</p>
+                        <p class="sectionlist">217-02 Vehicle Collisions Which Result...</p>
+                        <p class="sectionlist">217-03 Vehicle Collisions Which Result...</p>
+                        <p class="sectionlist">217-04 Accidents and Collisions - City...</p>
+                        <p class="sectionlist">217-05 Leaving the Scene of a Collisio...</p>
+                        <p class="sectionlist">217-06 Department Vehicle Collisions</p>
+                        <p class="sectionlist">217-07 Collisions - Private Vehicles A...</p>
+                        <p class="sectionlist">217-08 Aircraft Accidents</p>
+                        <p class="sectionlist">217-09 Directed Accident Response Prog...</p>
+                        <p class="sectionlist">217-10 Accidents - Department Property</p>
+                        <p class="sectionlist">217-11 Accidents - New York City Housi...</p>
+                        <p class="sectionlist">217-12 Notifications - Certain Acciden...</p>
+                        <p class="sectionlist">217-13 Preparing, Amending, and Releas...</p>
+                        <p class="sectionlist">217-14 Preparation of Police Accident ...</p>
+                        <p class="sectionlist">217-15 Collision Report Police Departm...</p>
+                        <p class="sectionlist">217-16 Chemical Test Warrant Applicati...</p>
+                        <p class="sectionlist">217-17 Bicycle Collisions - General Pr...</p>
+                        <p class="sectionlist">217-18 Vehicle Collision - Pedestrian ...</p>
+                        <hr>
+                        <p class="sectionlisttitle">218: Property - General</p>
+                        <p class="sectionlist">218-01 Invoicing Property - General Pr...</p>
+                        <p class="sectionlist">218-02 Return of Property Vehicles at ...</p>
+                        <p class="sectionlist">218-03 Delivery of Property Other Than...</p>
+                        <p class="sectionlist">218-04 Delivery of Evidence to the Pol...</p>
+                        <p class="sectionlist">218-05 Recording of Arrest and Propert...</p>
+                        <p class="sectionlist">218-06 Temporary Removal of Invoiced P...</p>
+                        <p class="sectionlist">218-07 Removal and Return of Evidence ...</p>
+                        <p class="sectionlist">218-08 Field Testing of Marijuana by A...</p>
+                        <p class="sectionlist">218-09 Evidence Other Than Controlled ...</p>
+                        <p class="sectionlist">218-10 Using Security Lead Seals or Pl...</p>
+                        <p class="sectionlist">218-11 Use of Biohazard Labels</p>
+                        <p class="sectionlist">218-12 Safeguarding Vehicles in Police...</p>
+                        <p class="sectionlist">218-13 Inventory Searches of Automobil...</p>
+                        <p class="sectionlist">218-14 Vehicle Stolen and Recovered wi...</p>
+                        <p class="sectionlist">218-15 Vehicle Stolen Outside New York...</p>
+                        <p class="sectionlist">218-16 Vehicle Stolen Within New York ...</p>
+                        <p class="sectionlist">218-18 Photographing Stolen Evidence V...</p>
+                        <p class="sectionlist">218-19 Invoicing Vehicles Property as ...</p>
+                        <p class="sectionlist">218-20 Delivery of Vehicle to Property...</p>
+                        <p class="sectionlist">218-21 Rotation Tow</p>
+                        <p class="sectionlist">218-22 Processing Boats in Police Cust...</p>
+                        <p class="sectionlist">218-23 Processing Firearms and Firearm...</p>
+                        <p class="sectionlist">218-24 Processing Controlled Substance...</p>
+                        <p class="sectionlist">218-25 Processing Controlled Substance...</p>
+                        <p class="sectionlist">218-26 Processing Found Property</p>
+                        <p class="sectionlist">218-27 Found Property Retained by an I...</p>
+                        <p class="sectionlist">218-28 Safeguarding Property of Deceas...</p>
+                        <p class="sectionlist">218-29 Invoicing Property Removed from...</p>
+                        <p class="sectionlist">218-30 Invoicing Property Taken from a...</p>
+                        <p class="sectionlist">218-31 Processing Computer Evidence</p>
+                        <p class="sectionlist">218-32 Processing Alcohol Seized in AB...</p>
+                        <p class="sectionlist">218-33 Processing Sexual Offense Colle...</p>
+                        <p class="sectionlist">218-34 Property of the Division of the...</p>
+                        <p class="sectionlist">218-35 Processing Currency Required as...</p>
+                        <p class="sectionlist">218-36 Processing Non-Evidence Currenc...</p>
+                        <p class="sectionlist">218-37 Handling of Red Dye Marked Curr...</p>
+                        <p class="sectionlist">218-38 Processing of Currency Negotiab...</p>
+                        <p class="sectionlist">218-39 Seizure Removal and Disposition...</p>
+                        <p class="sectionlist">218-40 General Vendor Distributor Forf...</p>
+                        <p class="sectionlist">218-41 Unlicensed Peddler Forfeiture P...</p>
+                        <p class="sectionlist">218-42 Obtaining and Returning of Prop...</p>
+                        <p class="sectionlist">218-43 Removal and Storage Fees for Li...</p>
+                        <p class="sectionlist">218-44 Removal and Storage Charges</p>
+                        <p class="sectionlist">218-45 Handgun License Suspension Revo...</p>
+                        <p class="sectionlist">218-46 Processing of Found Property Re...</p>
+                        <p class="sectionlist">218-48 Vehicle Seizure at Time of Arre...</p>
+                        <p class="sectionlist">218-49 Immediate Delivery of DNA Evide...</p>
+                        <p class="sectionlist">218-50 Prisoner Cellular Telephone(s)</p>
+                        <p class="sectionlist">218-51 Suspect Evidence Collection Kit...</p>
+                        <p class="sectionlist">218-53 Processing Fireworks Evidence</p>
+                        <p class="sectionlist">218-54 Preparation of Request for Labo...</p>
+                        <p class="sectionlist">218-55 Retention of Invoiced Property</p>
+                        <p class="sectionlist">218-56 Change of Category for Invoiced...</p>
+                        <p class="sectionlist">218-57 Invoicing Property Due to Appli...</p>
+                        <hr>
+                        <p class="sectionlisttitle">219: Department Property</p>
+                        <p class="sectionlist">219-01 Inspection of Department Vehicl...</p>
+                        <p class="sectionlist">219-02 Weekly Inspection of Department...</p>
+                        <p class="sectionlist">219-03 Preventive Maintenance Inspecti...</p>
+                        <p class="sectionlist">219-04 Washing Department Vehicles</p>
+                        <p class="sectionlist">219-05 Tire Repairs - Except Motorcycl...</p>
+                        <p class="sectionlist">219-06 Tire Replacement on Department ...</p>
+                        <p class="sectionlist">219-07 Authorized Tire Repair Stations...</p>
+                        <p class="sectionlist">219-08 Tire Chains</p>
+                        <p class="sectionlist">219-09 Department Tow</p>
+                        <p class="sectionlist">219-10 Unmarked Department Vehicle Uti...</p>
+                        <p class="sectionlist">219-11 Computerized Fuel Dispensing Sy...</p>
+                        <p class="sectionlist">219-12 Delivery of Gasoline to Fuel Di...</p>
+                        <p class="sectionlist">219-13 Delivery of Heating Oil</p>
+                        <p class="sectionlist">219-14 Department Computer Systems</p>
+                        <p class="sectionlist">219-15 Portable Radio Transceivers</p>
+                        <p class="sectionlist">219-17 Use of Patrol Kits</p>
+                        <p class="sectionlist">219-18 Inspection of Supplies</p>
+                        <p class="sectionlist">219-19 Inspection of Department Locker...</p>
+                        <p class="sectionlist">219-20 Loss or Theft of Department Pro...</p>
+                        <p class="sectionlist">219-21 Lost Stolen Firearm Shield Iden...</p>
+                        <p class="sectionlist">219-22 Operation of Vending Machines W...</p>
+                        <p class="sectionlist">219-23 Solar Cellular Callboxes</p>
+                        <p class="sectionlist">219-24 Utilization of and Accountabili...</p>
+                        <p class="sectionlist">219-25 E-Z Pass Tags</p>
+                        <p class="sectionlist">219-26 Acquisition and Use of Departme...</p>
+                        <p class="sectionlist">219-27 Issuance and Maintenance of Rad...</p>
+                        <p class="sectionlist">219-28 Emergency Power Outages</p>
+                        <p class="sectionlist">219-29 Distribution Use of NYPD Restri...</p>
+                        <p class="sectionlist">219-30 Issuance and Maintenance of Rad...</p>
+                        <p class="sectionlist">219-31 License Plate Reader Devices</p>
+                        <p class="sectionlist">219-32 Department Mobile Digital Devic...</p>
+                        <hr>
+                        <p class="sectionlisttitle">220: Citywide Incident Management</p>
+                        <p class="sectionlist">220-01 CIMS: Organizational Structure</p>
+                        <p class="sectionlist">220-02 CIMS: Primary Agency Matrix</p>
+                        <p class="sectionlist">220-03 CIMS: Agency Core Competencies ...</p>
+                        <p class="sectionlist">220-04 CIMS: Agency Roles</p>
+                        <p class="sectionlist">220-05 CIMS: Command Element</p>
+                        <p class="sectionlist">220-06 CIMS: Public Information Office...</p>
+                        <p class="sectionlist">220-07 CIMS: Safety Officer</p>
+                        <p class="sectionlist">220-08 CIMS: Liaison Officer</p>
+                        <p class="sectionlist">220-09 CIMS: Operations Section Chief</p>
+                        <p class="sectionlist">220-10 CIMS: Planning Section Chief</p>
+                        <p class="sectionlist">220-11 CIMS: Logistics Section Chief</p>
+                        <p class="sectionlist">220-12 CIMS: Finance / Administration ...</p>
+                        <p class="sectionlist">220-13 CIMS: Intelligence / Investigat...</p>
+                        <p class="sectionlist">220-14 CIMS: Supporting Agencies and A...</p>
+                        <p class="sectionlist">220-15 CIMS: Coordinating Agency</p>
+                        <p class="sectionlist">220-16 CIMS: Integrated Communications</p>
+                        <p class="sectionlist">220-17 CIMS: Transfer of Command</p>
+                        <p class="sectionlist">220-18 CIMS: Incident Sequence</p>
+                        <p class="sectionlist">220-19 CIMS: Incident Facilities</p>
+                        <p class="sectionlist">220-20 CIMS: Incident Facilities - Sta...</p>
+                        <p class="sectionlist">220-21 CIMS: Incident Facilities - Air...</p>
+                        <p class="sectionlist">220-22 CIMS: Demobilization</p>
+                        <p class="sectionlist">220-23 CIMS: Air Operations</p>
+                        <p class="sectionlist">220-24 CIMS: “Check In” Process</p>
+                        <p class="sectionlist">220-25 CIMS: Resources</p>
+                        <p class="sectionlist">220-26 CIMS: Resource Assignments</p>
+                        <p class="sectionlist">220-27 Citywide Incident Management Sy...</p>
+                        <p class="sectionlist">220-28 Citywide Incident Management Sy...</p>
+                        <hr>
+                        <p class="sectionlisttitle">221: Tactical Operations</p>
+                        <p class="sectionlist">221-01 Force Guidelines</p>
+                        <p class="sectionlist">221-02 Use of Force</p>
+                        <p class="sectionlist">221-03 Reporting and Investigation of ...</p>
+                        <p class="sectionlist">221-04 Firearms Discharge by Uniformed...</p>
+                        <p class="sectionlist">221-05 Person Dies or Sustains a Serio...</p>
+                        <p class="sectionlist">221-06 Member of the Service Subjected...</p>
+                        <p class="sectionlist">221-07 Use of Oleoresin Capsicum Peppe...</p>
+                        <p class="sectionlist">221-08 Use of Conducted Electrical Wea...</p>
+                        <p class="sectionlist">221-09 Use of Tear Gas</p>
+                        <p class="sectionlist">221-10 Use of Issuance of Shotguns Lon...</p>
+                        <p class="sectionlist">221-11 Guidelines and Approval Process...</p>
+                        <p class="sectionlist">221-12 Active Shooter Response Protoco...</p>
+                        <p class="sectionlist">221-13 Mentally Ill or Emotionally Dis...</p>
+                        <p class="sectionlist">221-14 Hostage Barricaded Person(s)</p>
+                        <p class="sectionlist">221-15 Vehicle Pursuits</p>
+                        <p class="sectionlist">221-16 Vehicle Checkpoints</p>
+                        <p class="sectionlist">221-17 Search Warrant Execution</p>
+                        <p class="sectionlist">221-18 Use of Department Canine Teams</p>
+                        <p class="sectionlist">221-19 Threats Against Members of the ...</p>
+                        <p class="sectionlist">221-20 Confrontation Situations</p>
+                        <p class="sectionlist">221-21 School Safety Agent - Victim of...</p>
+                        <p class="sectionlist">221-22 Traffic Enforcement Agent Victi...</p>
+                        <p class="sectionlist">221-23 Alcohol Testing for Uniformed M...</p>
+
+Comment Out END -->
+                    
+                    
+	</div>
+
+	<div class="stickytop">
+		<a href="#" class="section">Back to top</a>
+	</div>
+
+
+
+        <script>
+        function myFunction() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+        </script>
+
+    </body>
+
+        <!-- Made by Shawon -->
+        <!-- Personal project, not department sponsored -->
+
+</html>
