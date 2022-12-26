@@ -80,13 +80,13 @@ table {
 .stickytitle {
   position: -webkit-sticky;
   position: sticky;
-  top: 0px;
-  padding: 0px;
+  top: 5px;
   padding: 5px;
   background-color: skyblue;
   width: auto;
   text-align:right;
   font-family: helvetica;
+  font-size:20pt;
 }
 
 .stickysearch {
